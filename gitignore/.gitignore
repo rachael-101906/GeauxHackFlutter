@@ -117,3 +117,11 @@ app.*.symbols
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 !/dev/ci/**/Gemfile.lock
+
+# Other possible
+.env
+.vscode/
+.DS_Store
+google-services.json
+GoogleService-Info.plist
+firebase_app_id_file.json
