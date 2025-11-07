@@ -3,12 +3,14 @@ Splitting tasks effectively in a hackathon between two people requires clear com
 ## Define Roles Based on Strengths
 
 Person A: Focus on backend development (e.g., APIs, databases, server-side logic) if they are skilled in programming logic or server-side technologies.
+
 Person B: Handle frontend development (e.g., UI/UX design, user interaction, and visuals) if they are creative or experienced in design tools and frameworks.
 
 
 ## Divide Tasks by Workflow Stages
 
 Person A: Research and brainstorm the technical feasibility of the idea, set up the project structure, and handle core functionalities.
+
 Person B: Create wireframes/mockups, design the user interface, and integrate the frontend with the backend.
 
 
