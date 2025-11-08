@@ -17,7 +17,7 @@ Future<void> main() async {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'EcoEden',
       theme: ThemeData(
         useMaterial3: true,
       ),
