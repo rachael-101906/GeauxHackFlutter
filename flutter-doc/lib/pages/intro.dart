@@ -147,7 +147,7 @@ class IntroView extends StatelessWidget {
         const Text(
           'Generate a random endangered animal to learn more about!',
           style: TextStyle(
-            color: Color.fromARGB(153, 154, 167, 155),
+            color: Color(0xFFD9EFDE),
             fontSize: 16,
             fontWeight: FontWeight.w400,
             height: 1.25,

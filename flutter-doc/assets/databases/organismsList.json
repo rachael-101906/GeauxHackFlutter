@@ -5,7 +5,8 @@
     "biome": "Afrotropical",
     "countries": ["Kenya", "Tanzania", "Botswana"],
     "redlist_url": "https://www.iucnredlist.org/species/12392/3339343",
-    "category": "EN"
+    "category": "EN",
+    "summary": "The largest land mammal on Earth, African elephants play a vital role in shaping their ecosystems but face major threats from poaching and habitat loss."
   },
   {
     "common_name": "Sumatran Orangutan",
@@ -13,7 +14,8 @@
     "biome": "Indomalayan",
     "countries": ["Indonesia"],
     "redlist_url": "https://www.iucnredlist.org/species/39782/102329963",
-    "category": "CR"
+    "category": "CR",
+    "summary": "Found only on the island of Sumatra, these intelligent primates are critically endangered due to deforestation and illegal hunting."
   },
   {
     "common_name": "Black Rhino",
@@ -21,7 +23,8 @@
     "biome": "Afrotropical",
     "countries": ["South Africa", "Namibia", "Zimbabwe"],
     "redlist_url": "https://www.iucnredlist.org/species/6557/102000352",
-    "category": "CR"
+    "category": "CR",
+    "summary": "Known for its hooked upper lip, the black rhino has been pushed to the brink by poaching for its horn despite strong conservation efforts."
   },
   {
     "common_name": "Yangtze Giant Softshell Turtle",
@@ -29,7 +32,8 @@
     "biome": "Palearctic",
     "countries": ["China", "Vietnam"],
     "redlist_url": "https://www.iucnredlist.org/species/1957/2509884",
-    "category": "CR"
+    "category": "CR",
+    "summary": "One of the rarest turtles on Earth, with only a few individuals known to exist, making its survival extremely uncertain."
   },
   {
     "common_name": "Vaquita",
@@ -37,7 +41,8 @@
     "biome": "Neotropical",
     "countries": ["Mexico"],
     "redlist_url": "https://www.iucnredlist.org/species/17006/50370483",
-    "category": "CR"
+    "category": "CR",
+    "summary": "The world’s rarest marine mammal, the vaquita is on the edge of extinction due to illegal fishing in the Gulf of California."
   },
   {
     "common_name": "Mountain Gorilla",
@@ -45,7 +50,8 @@
     "biome": "Afrotropical",
     "countries": ["Rwanda", "Uganda", "DR Congo"],
     "redlist_url": "https://www.iucnredlist.org/species/39994/17989748",
-    "category": "EN"
+    "category": "EN",
+    "summary": "Living high in central Africa’s forests, mountain gorillas have rebounded thanks to conservation but remain endangered from poaching and disease."
   },
   {
     "common_name": "Snow Leopard",
@@ -53,7 +59,8 @@
     "biome": "Palearctic",
     "countries": ["Nepal", "China", "Mongolia"],
     "redlist_url": "https://www.iucnredlist.org/species/22732/50664030",
-    "category": "EN"
+    "category": "EN",
+    "summary": "The elusive snow leopard roams the mountains of Central Asia, threatened by habitat loss and human-wildlife conflict."
   },
   {
     "common_name": "Green Turtle",
@@ -61,7 +68,8 @@
     "biome": "Marine",
     "countries": ["Australia", "Brazil", "Philippines"],
     "redlist_url": "https://www.iucnredlist.org/species/4615/11037468",
-    "category": "EN"
+    "category": "EN",
+    "summary": "These graceful marine turtles are vital to ocean ecosystems but suffer from pollution, bycatch, and egg poaching."
   },
   {
     "common_name": "Hawksbill Turtle",
@@ -69,7 +77,8 @@
     "biome": "Marine",
     "countries": ["Indonesia", "Australia", "Mexico"],
     "redlist_url": "https://www.iucnredlist.org/species/8005/12881238",
-    "category": "CR"
+    "category": "CR",
+    "summary": "Famous for its beautiful shell, the hawksbill turtle is critically endangered due to illegal trade and coral reef destruction."
   },
   {
     "common_name": "Asian Elephant",
@@ -77,7 +86,8 @@
     "biome": "Indomalayan",
     "countries": ["India", "Sri Lanka", "Thailand"],
     "redlist_url": "https://www.iucnredlist.org/species/7140/12828813",
-    "category": "EN"
+    "category": "EN",
+    "summary": "Smaller than its African cousin, the Asian elephant faces habitat fragmentation and conflict with humans across South Asia."
   },
   {
     "common_name": "Amur Leopard",
@@ -85,7 +95,8 @@
     "biome": "Palearctic",
     "countries": ["Russia", "China"],
     "redlist_url": "https://www.iucnredlist.org/species/15954/50659951",
-    "category": "CR"
+    "category": "CR",
+    "summary": "One of the rarest big cats, the Amur leopard survives in the cold forests of eastern Russia with only a few dozen individuals remaining."
   },
   {
     "common_name": "Orinoco Crocodile",
@@ -93,7 +104,8 @@
     "biome": "Neotropical",
     "countries": ["Venezuela", "Colombia"],
     "redlist_url": "https://www.iucnredlist.org/species/5669/11184591",
-    "category": "CR"
+    "category": "CR",
+    "summary": "A massive river predator native to the Orinoco Basin, nearly hunted to extinction for its hide but now slowly recovering."
   },
   {
     "common_name": "Asian Pangolin",
@@ -101,7 +113,8 @@
     "biome": "Indomalayan",
     "countries": ["India", "Pakistan", "Sri Lanka"],
     "redlist_url": "https://www.iucnredlist.org/species/12763/123586522",
-    "category": "EN"
+    "category": "EN",
+    "summary": "Covered in keratin scales, this pangolin is heavily trafficked for traditional medicine and meat, making it highly endangered."
   },
   {
     "common_name": "Gooty Sapphire Tarantula",
@@ -109,7 +122,8 @@
     "biome": "Indomalayan",
     "countries": ["India"],
     "redlist_url": "https://www.iucnredlist.org/species/41111/103383276",
-    "category": "CR"
+    "category": "CR",
+    "summary": "A dazzling blue tarantula found only in a small forest area of India, threatened by habitat destruction and illegal pet trade."
   },
   {
     "common_name": "Red Panda",
@@ -117,7 +131,8 @@
     "biome": "Palearctic",
     "countries": ["China", "Nepal", "India"],
     "redlist_url": "https://www.iucnredlist.org/species/714/110018718",
-    "category": "EN"
+    "category": "EN",
+    "summary": "The red panda, with its fiery fur and gentle nature, depends on Himalayan forests now shrinking from human expansion."
   },
   {
     "common_name": "Irrawaddy Dolphin",
@@ -125,7 +140,8 @@
     "biome": "Neotropical",
     "countries": ["Bangladesh", "Cambodia", "Vietnam"],
     "redlist_url": "https://www.iucnredlist.org/species/15419/50366040",
-    "category": "EN"
+    "category": "EN",
+    "summary": "A unique dolphin that lives in rivers and coastal waters, threatened by fishing nets and water pollution."
   },
   {
     "common_name": "Asian Lion",
@@ -133,7 +149,8 @@
     "biome": "Indomalayan",
     "countries": ["India"],
     "redlist_url": "https://www.iucnredlist.org/species/15951/50659751",
-    "category": "EN"
+    "category": "EN",
+    "summary": "Once widespread across Asia, the Asiatic lion now survives only in India’s Gir Forest, protected by ongoing conservation work."
   },
   {
     "common_name": "Gooty Spider",
@@ -141,7 +158,8 @@
     "biome": "Indomalayan",
     "countries": ["India"],
     "redlist_url": "https://www.iucnredlist.org/species/41110/103383275",
-    "category": "CR"
+    "category": "CR",
+    "summary": "A rare Indian tarantula with striking patterns, critically endangered due to deforestation and pet trade collection."
   },
   {
     "common_name": "Leatherback Turtle",
@@ -149,7 +167,8 @@
     "biome": "Marine",
     "countries": ["Australia", "Mexico", "Indonesia"],
     "redlist_url": "https://www.iucnredlist.org/species/6494/43519944",
-    "category": "CR"
+    "category": "CR",
+    "summary": "The largest sea turtle species, known for its leathery shell, faces grave threats from fishing gear and plastic pollution."
   },
   {
     "common_name": "Javan Rhinoceros",
@@ -157,6 +176,7 @@
     "biome": "Indomalayan",
     "countries": ["Indonesia"],
     "redlist_url": "https://www.iucnredlist.org/species/19495/123105847",
-    "category": "CR"
+    "category": "CR",
+    "summary": "With fewer than 80 individuals remaining, the Javan rhino is one of the rarest mammals on Earth, surviving only in one national park."
   }
 ]
