@@ -1,17 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/firebase_options.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
-
-String name = 'matdofjkslfjk'; 
-int number = 1; 
-double ekrjgerjg = 1.0; 
-List myList = ['ajl', 'dkljf'];
-Map<String, int> myMap = {'String': 6, 'Word': 6};
-
-
-class MyApp extends StatelessWidget {
+  class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.

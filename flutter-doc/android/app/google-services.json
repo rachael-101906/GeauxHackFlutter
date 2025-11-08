@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "813662948729",
+    "project_id": "geauxhackflutter",
+    "storage_bucket": "geauxhackflutter.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813662948729:android:b57bd56f38fd32e91e73a8",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZ5MrDhLSbmd5iYhfLm-F2JkBkETnJtZc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
