@@ -1,0 +1,162 @@
+[
+  {
+    "common_name": "African Elephant",
+    "scientific_name": "Loxodonta africana",
+    "biome": "Afrotropical",
+    "countries": ["Kenya", "Tanzania", "Botswana"],
+    "redlist_url": "https://www.iucnredlist.org/species/12392/3339343",
+    "category": "EN"
+  },
+  {
+    "common_name": "Sumatran Orangutan",
+    "scientific_name": "Pongo abelii",
+    "biome": "Indomalayan",
+    "countries": ["Indonesia"],
+    "redlist_url": "https://www.iucnredlist.org/species/39782/102329963",
+    "category": "CR"
+  },
+  {
+    "common_name": "Black Rhino",
+    "scientific_name": "Diceros bicornis",
+    "biome": "Afrotropical",
+    "countries": ["South Africa", "Namibia", "Zimbabwe"],
+    "redlist_url": "https://www.iucnredlist.org/species/6557/102000352",
+    "category": "CR"
+  },
+  {
+    "common_name": "Yangtze Giant Softshell Turtle",
+    "scientific_name": "Rafetus swinhoei",
+    "biome": "Palearctic",
+    "countries": ["China", "Vietnam"],
+    "redlist_url": "https://www.iucnredlist.org/species/1957/2509884",
+    "category": "CR"
+  },
+  {
+    "common_name": "Vaquita",
+    "scientific_name": "Phocoena sinus",
+    "biome": "Neotropical",
+    "countries": ["Mexico"],
+    "redlist_url": "https://www.iucnredlist.org/species/17006/50370483",
+    "category": "CR"
+  },
+  {
+    "common_name": "Mountain Gorilla",
+    "scientific_name": "Gorilla beringei beringei",
+    "biome": "Afrotropical",
+    "countries": ["Rwanda", "Uganda", "DR Congo"],
+    "redlist_url": "https://www.iucnredlist.org/species/39994/17989748",
+    "category": "EN"
+  },
+  {
+    "common_name": "Snow Leopard",
+    "scientific_name": "Panthera uncia",
+    "biome": "Palearctic",
+    "countries": ["Nepal", "China", "Mongolia"],
+    "redlist_url": "https://www.iucnredlist.org/species/22732/50664030",
+    "category": "EN"
+  },
+  {
+    "common_name": "Green Turtle",
+    "scientific_name": "Chelonia mydas",
+    "biome": "Marine",
+    "countries": ["Australia", "Brazil", "Philippines"],
+    "redlist_url": "https://www.iucnredlist.org/species/4615/11037468",
+    "category": "EN"
+  },
+  {
+    "common_name": "Hawksbill Turtle",
+    "scientific_name": "Eretmochelys imbricata",
+    "biome": "Marine",
+    "countries": ["Indonesia", "Australia", "Mexico"],
+    "redlist_url": "https://www.iucnredlist.org/species/8005/12881238",
+    "category": "CR"
+  },
+  {
+    "common_name": "Asian Elephant",
+    "scientific_name": "Elephas maximus",
+    "biome": "Indomalayan",
+    "countries": ["India", "Sri Lanka", "Thailand"],
+    "redlist_url": "https://www.iucnredlist.org/species/7140/12828813",
+    "category": "EN"
+  },
+  {
+    "common_name": "Amur Leopard",
+    "scientific_name": "Panthera pardus orientalis",
+    "biome": "Palearctic",
+    "countries": ["Russia", "China"],
+    "redlist_url": "https://www.iucnredlist.org/species/15954/50659951",
+    "category": "CR"
+  },
+  {
+    "common_name": "Orinoco Crocodile",
+    "scientific_name": "Crocodylus intermedius",
+    "biome": "Neotropical",
+    "countries": ["Venezuela", "Colombia"],
+    "redlist_url": "https://www.iucnredlist.org/species/5669/11184591",
+    "category": "CR"
+  },
+  {
+    "common_name": "Asian Pangolin",
+    "scientific_name": "Manis crassicaudata",
+    "biome": "Indomalayan",
+    "countries": ["India", "Pakistan", "Sri Lanka"],
+    "redlist_url": "https://www.iucnredlist.org/species/12763/123586522",
+    "category": "EN"
+  },
+  {
+    "common_name": "Gooty Sapphire Tarantula",
+    "scientific_name": "Poecilotheria metallica",
+    "biome": "Indomalayan",
+    "countries": ["India"],
+    "redlist_url": "https://www.iucnredlist.org/species/41111/103383276",
+    "category": "CR"
+  },
+  {
+    "common_name": "Red Panda",
+    "scientific_name": "Ailurus fulgens",
+    "biome": "Palearctic",
+    "countries": ["China", "Nepal", "India"],
+    "redlist_url": "https://www.iucnredlist.org/species/714/110018718",
+    "category": "EN"
+  },
+  {
+    "common_name": "Irrawaddy Dolphin",
+    "scientific_name": "Orcaella brevirostris",
+    "biome": "Neotropical",
+    "countries": ["Bangladesh", "Cambodia", "Vietnam"],
+    "redlist_url": "https://www.iucnredlist.org/species/15419/50366040",
+    "category": "EN"
+  },
+  {
+    "common_name": "Asian Lion",
+    "scientific_name": "Panthera leo persica",
+    "biome": "Indomalayan",
+    "countries": ["India"],
+    "redlist_url": "https://www.iucnredlist.org/species/15951/50659751",
+    "category": "EN"
+  },
+  {
+    "common_name": "Gooty Spider",
+    "scientific_name": "Poecilotheria rufilata",
+    "biome": "Indomalayan",
+    "countries": ["India"],
+    "redlist_url": "https://www.iucnredlist.org/species/41110/103383275",
+    "category": "CR"
+  },
+  {
+    "common_name": "Leatherback Turtle",
+    "scientific_name": "Dermochelys coriacea",
+    "biome": "Marine",
+    "countries": ["Australia", "Mexico", "Indonesia"],
+    "redlist_url": "https://www.iucnredlist.org/species/6494/43519944",
+    "category": "CR"
+  },
+  {
+    "common_name": "Javan Rhinoceros",
+    "scientific_name": "Rhinoceros sondaicus",
+    "biome": "Indomalayan",
+    "countries": ["Indonesia"],
+    "redlist_url": "https://www.iucnredlist.org/species/19495/123105847",
+    "category": "CR"
+  }
+]
