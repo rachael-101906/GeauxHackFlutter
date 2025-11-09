@@ -77,7 +77,7 @@ class _AnimatedQuizSectionState extends State<AnimatedQuizSection> {
       child: QuizWidget(
         questions: _questions,
         config: const QuizConfig(
-          backgroundColor: Color(0xFF1E3A8A),
+          backgroundColor: Color.fromARGB(255, 81, 118, 89),
           cornerRadius: 16,
           padding: EdgeInsets.all(24),
           showProgressIndicator: true,
@@ -87,16 +87,18 @@ class _AnimatedQuizSectionState extends State<AnimatedQuizSection> {
           autoNavigationDelay: Duration(milliseconds: 1000),
           useGradientBackground: true,
           gradientColors: [
-            Color(0xFF1E3A8A),
-            Color(0xFF3B4CCA),
-            Color(0xFF1E3A8A),
+            Color(0xFFD9EFDE),
+            Color(0xFF232E26),
+            Colors.white,
           ],
         ),
         onAnswerChanged: (question, answer) {
           debugPrint('Question ${question.id}: $answer');
         },
         onQuizCompleted: (questions) {
-          _showQuizResults(context, questions);
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _showQuizResults(context, questions);
+          });
         },
       ),
     );
@@ -105,7 +107,6 @@ class _AnimatedQuizSectionState extends State<AnimatedQuizSection> {
 
 class QuizHelper {
   static Future<List<QuizQuestion>> loadOrganismQuiz() async {
-    // Load JSON file from assets
     final String jsonString =
         await rootBundle.loadString('assets/databases/organismsList.json');
     final List<dynamic> data = json.decode(jsonString);

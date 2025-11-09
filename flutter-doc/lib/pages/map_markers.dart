@@ -4,7 +4,6 @@ import 'package:latlong2/latlong.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 
-// Inside MapMarkersPage.dart, replace the MapAnimalDialog class:
 
 class MapAnimalDialog extends StatelessWidget {
   final String animalName;
@@ -28,7 +27,7 @@ class MapAnimalDialog extends StatelessWidget {
         child: Container(
           width: 360,
           decoration: BoxDecoration(
-            color: const Color(0xFFD9EFDE),
+            color: Color(0xFF232E26),
             borderRadius: BorderRadius.circular(20),
             boxShadow: const [
               BoxShadow(
@@ -57,7 +56,7 @@ class MapAnimalDialog extends StatelessWidget {
                         return Container(
                           width: double.infinity,
                           height: 200,
-                          color: const Color(0xFF68B684),
+                          color:  Color(0xFF232E26),
                           child: const Icon(Icons.image_not_supported, size: 50, color: Colors.white),
                         );
                       },
@@ -91,7 +90,7 @@ class MapAnimalDialog extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF232E26),
+                        color: Color(0xFFB3CBB2),
                       ),
                     ),
                     const SizedBox(height: 12),
@@ -99,7 +98,7 @@ class MapAnimalDialog extends StatelessWidget {
                       description,
                       style: const TextStyle(
                         fontSize: 15,
-                        color: Color(0xFF232E26),
+                        color: Color(0xFFB3CBB2),
                         height: 1.6,
                       ),
                     ),
@@ -125,7 +124,7 @@ class MapMarkersPage extends StatefulWidget {
 class _MapMarkersPageState extends State<MapMarkersPage> {
   List<dynamic>? organisms; 
 
-  static const LatLng _pointCentral = LatLng(40.900, -39.060);
+  static const LatLng _pointCentral = LatLng(30.900, -30.060);
 
   static const LatLng _neotropicalPoint = LatLng(-10.0, -55.0);
   static const LatLng _oceanicPoint = LatLng(-15.0, -165.0);
@@ -250,7 +249,7 @@ class _MapMarkersPageState extends State<MapMarkersPage> {
 @override
 Widget build(BuildContext context) {
   return Scaffold(
-    backgroundColor:  const Color(0xFFD9EFDE), 
+    backgroundColor: Color(0xFF232E26),
     body: Builder( 
       builder: (BuildContext innerContext) {
         return Column(
@@ -265,20 +264,19 @@ Widget build(BuildContext context) {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black, 
+                      color:  Color(0xFFB3CBB2), 
                     ),
                   ),
                 ),
             ),
             
-            // Map Component (Takes up remaining space)
             Expanded( 
               child: Padding(
                 padding: const EdgeInsets.all(30),
                 child: FlutterMap(
                   options: const MapOptions(
                     initialCenter: _pointCentral,
-                    initialZoom: 1.5,
+                    initialZoom: 1.8,
                     interactionOptions: InteractionOptions(
                       flags: InteractiveFlag.none,
                     ),

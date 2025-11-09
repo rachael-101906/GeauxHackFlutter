@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:math';
 
-
 class DropdownSelect extends StatefulWidget {
   const DropdownSelect({super.key});
 
@@ -26,7 +25,6 @@ class _DropdownSelectState extends State<DropdownSelect> {
     'Fish',
     'Insect',
   ];
-
 
   @override
   void initState() {
