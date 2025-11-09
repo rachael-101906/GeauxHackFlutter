@@ -31,6 +31,8 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+
+
 class NavBar extends StatelessWidget implements PreferredSizeWidget {
   const NavBar({super.key});
 
@@ -40,6 +42,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      elevation: 0,
       backgroundColor: const Color.fromARGB(255, 218, 236, 198),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -51,7 +54,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                 height: 80,
                 width: 120,
                 child: Image.asset(
-                  'assets/images/ecoeden.png',
+                  'assets/images/ecoeden.jpeg',
                   fit: BoxFit.contain, 
                 ),
               ),
