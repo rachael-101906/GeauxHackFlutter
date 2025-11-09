@@ -6,200 +6,195 @@
     "scientific_name": "Loxodonta africana",
     "biome": "Afrotropical",
     "countries": ["Kenya", "Tanzania", "Botswana"],
-    "category": "EN",
+    "redListCategory": "EN",
     "redlist_url": "https://www.iucnredlist.org/species/12392/3339343",
-    "imagePath": "https://wir.iucnredlist.org/loxodonta-africana.jpg"
+    "imagePath": "/cardImages/loxodonta-africana.jpg"
   },
   {
     "id": 2,
-    "class": "Mammalia",
-    "common_name": "Sumatran Orangutan",
-    "scientific_name": "Pongo abelii",
-    "biome": "Indomalayan",
-    "countries": ["Indonesia"],
-    "category": "CR",
-    "redlist_url": "https://www.iucnredlist.org/species/39782/102329963",
-    "imagePath": "https://wir.iucnredlist.org/pongo-abelii.jpg"
-  },
-  {
-    "id": 3,
     "class": "Mammalia",
     "common_name": "Snow Leopard",
     "scientific_name": "Panthera uncia",
     "biome": "Palearctic",
     "countries": ["Nepal", "China", "Mongolia"],
-    "category": "EN",
+    "redListCategory": "EN",
     "redlist_url": "https://www.iucnredlist.org/species/22732/50664030",
-    "imagePath": "https://wir.iucnredlist.org/panthera-uncia.jpg"
+    "imagePath": "/cardImages/panthera-uncia.jpg"
   },
-
   {
-    "id": 11,
+    "id": 3,
+    "class": "Mammalia",
+    "common_name": "Sumatran Orangutan",
+    "scientific_name": "Pongo abelii",
+    "biome": "Indomalayan",
+    "countries": ["Indonesia"],
+    "redListCategory": "CR",
+    "redlist_url": "https://www.iucnredlist.org/species/39782/102329963",
+    "imagePath": "/cardImages/pongo-abelii.jpg"
+  },
+  {
+    "id": 4,
     "class": "Amphibia",
     "common_name": "Axolotl",
     "scientific_name": "Ambystoma mexicanum",
     "bioRealm": "Freshwater",
     "country": "Mexico",
-    "redListCategory": "Critically Endangered",
-    "url": "https://www.iucnredlist.org/species/1095/53947343",
-    "imagePath": "https://wir.iucnredlist.org/ambystoma-mexicanum.jpg"
+    "redListCategory": "CR",
+    "redlist_url": "https://www.iucnredlist.org/species/1095/53947343",
+    "imagePath": "/cardImages/ambystoma-mexicanum.jpg"
   },
   {
-    "id": 12,
+    "id": 5,
     "class": "Amphibia",
-    "common_name": "Golden Poison Frog",
-    "scientific_name": "Phyllobates terribilis",
-    "bioRealm": "Rainforest",
-    "country": "Colombia",
-    "redListCategory": "Endangered",
-    "url": "https://www.iucnredlist.org/species/55290/11316112",
-    "imagePath": "https://wir.iucnredlist.org/phyllobates-terribilis.jpg"
+    "common_name": "Cowan's Mantella",
+    "scientific_name": "Mantella cowanii",
+    "bioRealm": "Afrotropical",
+    "country": "Madagascar",
+    "redListCategory": "EN",
+    "redlist_url": "https://www.iucnredlist.org/species/57441/60797066",
+    "imagePath": "/cardImages/mantella-cowanii.jpg"
   },
   {
-    "id": 13,
+    "id": 6,
     "class": "Amphibia",
     "common_name": "Chinese Giant Salamander",
     "scientific_name": "Andrias davidianus",
     "bioRealm": "Freshwater Rivers",
     "country": "China",
-    "redListCategory": "Critically Endangered",
-    "url": "https://www.iucnredlist.org/species/1272/175687140",
-    "imagePath": "https://wir.iucnredlist.org/andrias-davidianus.jpg"
+    "redListCategory": "CR",
+    "redlist_url": "https://www.iucnredlist.org/species/179010104/48438418",
+    "imagePath": "/cardImages/andrias-davidianus.jpg"
   },
-
   {
-    "id": 14,
+    "id": 7,
     "class": "Reptilia",
     "common_name": "Green Sea Turtle",
     "scientific_name": "Chelonia mydas",
     "bioRealm": "Marine",
     "country": "Global (Tropical Waters)",
-    "redListCategory": "Endangered",
-    "url": "https://www.iucnredlist.org/species/4615/11037468",
-    "imagePath": "https://wir.iucnredlist.org/chelonia-mydas.jpg"
+    "redListCategory": "EN",
+    "redlist_url": "https://www.iucnredlist.org/species/4615/11037468",
+    "imagePath": "/cardImages/chelonia-mydas.jpg"
   },
   {
-    "id": 15,
+    "id": 8,
     "class": "Reptilia",
     "common_name": "Komodo Dragon",
     "scientific_name": "Varanus komodoensis",
     "bioRealm": "Tropical Savanna",
     "country": "Indonesia",
-    "redListCategory": "Endangered",
-    "url": "https://www.iucnredlist.org/species/22884/9394233",
-    "imagePath": "https://wir.iucnredlist.org/varanus-komodoensis.jpg"
+    "redListCategory": "EN",
+    "redlist_url": "https://www.iucnredlist.org/species/22884/123633058",
+    "imagePath": "/cardImages/varanus-komodoensis.jpg"
   },
   {
-    "id": 16,
+    "id": 9,
     "class": "Reptilia",
     "common_name": "Orinoco Crocodile",
     "scientific_name": "Crocodylus intermedius",
     "bioRealm": "Neotropical",
     "country": "Venezuela, Colombia",
-    "redListCategory": "Critically Endangered",
-    "url": "https://www.iucnredlist.org/species/5669/11184591",
-    "imagePath": "https://wir.iucnredlist.org/crocodylus-intermedius.jpg"
+    "redListCategory": "CR",
+    "redlist_url": "https://www.iucnredlist.org/species/5661/181089024",
+    "imagePath": "/cardImages/crocodylus-intermedius.jpg"
   },
-
   {
-    "id": 17,
+    "id": 10,
     "class": "Pisces",
     "common_name": "Great White Shark",
     "scientific_name": "Carcharodon carcharias",
     "bioRealm": "Marine",
     "country": "Global",
-    "redListCategory": "Vulnerable",
-    "url": "https://www.iucnredlist.org/species/3855/165361515",
-    "imagePath": "https://wir.iucnredlist.org/carcharodon-carcharias.jpg"
+    "redListCategory": "VU",
+    "redlist_url": "https://www.iucnredlist.org/species/3855/212629880",
+    "imagePath": "/cardImages/carcharodon-carcharias.jpg"
   },
   {
-    "id": 18,
+    "id": 11,
     "class": "Pisces",
     "common_name": "Atlantic Bluefin Tuna",
     "scientific_name": "Thunnus thynnus",
     "bioRealm": "Marine",
     "country": "Atlantic Ocean",
-    "redListCategory": "Least Concern",
-    "url": "https://www.iucnredlist.org/species/21860/93271370",
-    "imagePath": "https://wir.iucnredlist.org/thunnus-thynnus.jpg"
+    "redListCategory": "LC",
+    "redlist_url": "https://www.iucnredlist.org/species/21860/46913402",
+    "imagePath": "/cardImages/thunnus-thynnus.jpg"
   },
   {
-    "id": 19,
+    "id": 12,
     "class": "Pisces",
-    "common_name": "Coelacanth",
-    "scientific_name": "Latimeria chalumnae",
-    "bioRealm": "Marine Deep Sea",
-    "country": "Comoros, South Africa",
-    "redListCategory": "Critically Endangered",
-    "url": "https://www.iucnredlist.org/species/11065/176880329",
-    "imagePath": "https://wir.iucnredlist.org/latimeria-chalumnae.jpg"
+    "common_name": "White Sturgeon",
+    "scientific_name": "Acipenser transmontanus",
+    "bioRealm": "Marine",
+    "country": "Canada, United States",
+    "redListCategory": "EN",
+    "redlist_url": "https://www.iucnredlist.org/species/103290570/103290575",
+    "imagePath": "/cardImages/acipenser-transmontanus.jpg"
   },
-
   {
-    "id": 20,
+    "id": 13,
     "class": "Insecta",
     "common_name": "Monarch Butterfly",
     "scientific_name": "Danaus plexippus",
     "bioRealm": "Temperate Forests & Meadows",
     "country": "North America",
-    "redListCategory": "Endangered",
-    "url": "https://www.iucnredlist.org/species/15949/54320854",
-    "imagePath": "https://wir.iucnredlist.org/danaus-plexippus.jpg"
+    "redListCategory": "LC",
+    "redlist_url": "https://www.iucnredlist.org/species/159971/219149911",
+    "imagePath": "/cardImages/danaus-plexippus.jpg"
   },
   {
-    "id": 21,
+    "id": 14,
     "class": "Insecta",
-    "common_name": "Atlas Moth",
-    "scientific_name": "Attacus atlas",
+    "common_name": "Moth",
+    "scientific_name": "Neomariania scriptella",
     "bioRealm": "Tropical Rainforest",
-    "country": "Southeast Asia",
-    "redListCategory": "Not Evaluated",
-    "url": "https://en.wikipedia.org/wiki/Attacus_atlas",
-    "imagePath": "https://wir.iucnredlist.org/attacus-atlas.jpg"
+    "country": "Portugal",
+    "redListCategory": "EN",
+    "redlist_url": "https://www.iucnredlist.org/species/97239466/135855640",
+    "imagePath": "/cardImages/neomariania-scriptella.jpg"
   },
   {
-    "id": 22,
+    "id": 15,
     "class": "Insecta",
-    "common_name": "Hercules Beetle",
-    "scientific_name": "Dynastes hercules",
+    "common_name": "American Burying Beetle",
+    "scientific_name": "Nicrophorus americanus",
     "bioRealm": "Tropical Rainforest",
-    "country": "Central and South America",
-    "redListCategory": "Not Evaluated",
-    "url": "https://en.wikipedia.org/wiki/Dynastes_hercules",
-    "imagePath": "https://wir.iucnredlist.org/dynastes-hercules.jpg"
+    "country": "North America",
+    "redListCategory": "CR",
+    "redlist_url": "https://www.iucnredlist.org/species/14760/4460296",
+    "imagePath": "/cardImages/nicrophorus-americanus.jpg"
   },
-
   {
-    "id": 23,
+    "id": 16,
     "class": "Aves",
     "common_name": "Bald Eagle",
     "scientific_name": "Haliaeetus leucocephalus",
     "bioRealm": "Forests and Wetlands",
     "country": "North America",
-    "redListCategory": "Least Concern",
-    "url": "https://www.iucnredlist.org/species/22695144/159365687",
-    "imagePath": "https://wir.iucnredlist.org/haliaeetus-leucocephalus.jpg"
+    "redListCategory": "LC",
+    "redlist_url": "https://www.iucnredlist.org/species/22695144/264598530",
+    "imagePath": "/cardImages/haliaeetus-leucocephalus.jpg"
   },
   {
-    "id": 24,
+    "id": 17,
     "class": "Aves",
     "common_name": "Kakapo",
     "scientific_name": "Strigops habroptilus",
     "bioRealm": "Temperate Forest",
     "country": "New Zealand",
-    "redListCategory": "Critically Endangered",
-    "url": "https://www.iucnredlist.org/species/22685245/197357751",
-    "imagePath": "https://wir.iucnredlist.org/strigops-habroptilus.jpg"
+    "redListCategory": "CR",
+    "redlist_url": "https://www.iucnredlist.org/species/22685245/129751169",
+    "imagePath": "/cardImages/strigops-habroptilus.jpg"
   },
   {
-    "id": 25,
+    "id": 18,
     "class": "Aves",
     "common_name": "Philippine Eagle",
     "scientific_name": "Pithecophaga jefferyi",
     "bioRealm": "Tropical Forest",
     "country": "Philippines",
-    "redListCategory": "Critically Endangered",
-    "url": "https://www.iucnredlist.org/species/22696003/204180903",
-    "imagePath": "https://wir.iucnredlist.org/pithecophaga-jefferyi.jpg"
+    "redListCategory": "CR",
+    "redlist_url": "https://www.iucnredlist.org/species/22696012/273773083",
+    "imagePath": "/cardImages/pithecophaga-jefferyi.jpg"
   }
 ]
