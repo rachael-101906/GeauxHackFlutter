@@ -45,7 +45,7 @@ class _DropdownSelectState extends State<DropdownSelect> {
     });
   }
 
-  void _showToolTip(String animalName, String description, String imagePath) {
+  void _showToolTip(String animalName, String description, String status, String imagePath) {
     _removeToolTip();
 
     final overlay = Overlay.of(context);
@@ -72,6 +72,7 @@ class _DropdownSelectState extends State<DropdownSelect> {
                 animalName: animalName,
                 description: description,
                 imagePath: imagePath,
+                status: status,
                 onDismiss: _removeToolTip,
               ),
             ),
@@ -121,9 +122,10 @@ class _DropdownSelectState extends State<DropdownSelect> {
       int randomIndex = Random().nextInt(filteredList.length);
       String animalName = filteredList[randomIndex]['common_name'];
       String description = filteredList[randomIndex]['description'] ?? 'No description available';
+      String status = filteredList[randomIndex]['redListCategory'] ?? 'Unknown';
       String imagePath = filteredList[randomIndex]['imagePath'];
 
-      _showToolTip(animalName, description, imagePath);
+      _showToolTip(animalName, description, status, imagePath);
     });
   }
 
@@ -236,6 +238,7 @@ class AnimalToolTip extends StatefulWidget {
   final String animalName;
   final String description;
   final String imagePath;
+  final String status;
   final VoidCallback onDismiss;
 
   const AnimalToolTip({
@@ -243,6 +246,7 @@ class AnimalToolTip extends StatefulWidget {
     required this.animalName,
     required this.description,
     required this.imagePath,
+    required this.status,
     required this.onDismiss,
   });
 
@@ -359,6 +363,15 @@ class _AnimalToolTipState extends State<AnimalToolTip>
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                           color: Color(0xFF232E26),
+                        ),
+                      ),
+                      Text(
+                        widget.status,
+                        style: const TextStyle(
+                          fontStyle: FontStyle.italic,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 48, 69, 45),
                         ),
                       ),
                       const SizedBox(height: 12),

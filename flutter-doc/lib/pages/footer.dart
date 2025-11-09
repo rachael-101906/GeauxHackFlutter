@@ -90,6 +90,7 @@ class DonationPopUp extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: const Text('Support Our Cause'),
+      backgroundColor: Color.fromARGB(255, 231, 246, 234),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -122,7 +123,7 @@ class DonationPopUp extends StatelessWidget {
             }
 
             // Only show thank-you message if both fields are filled
-           
+              if (_amount.text.isNotEmpty && _card.text.isNotEmpty) {
               showDialog(
                 context: context,
                 builder: (context) => AlertDialog(
@@ -138,7 +139,7 @@ class DonationPopUp extends StatelessWidget {
                   ],
                 ),
               );
-            
+              }
           },
           child: const Text('Donate'),
         ),

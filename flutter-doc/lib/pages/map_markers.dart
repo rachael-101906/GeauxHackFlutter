@@ -10,6 +10,7 @@ class MapAnimalDialog extends StatelessWidget {
   final String description;
   final String imagePath;
   final String url;
+  final String redListCategory;
   final VoidCallback onDismiss;
 
   const MapAnimalDialog({
@@ -18,6 +19,7 @@ class MapAnimalDialog extends StatelessWidget {
     required this.description,
     required this.imagePath,
     required this.url,
+    required this.redListCategory,
     required this.onDismiss,
   });
 
@@ -93,6 +95,16 @@ class MapAnimalDialog extends StatelessWidget {
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: Color(0xFFB3CBB2),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    Text(
+                      redListCategory,
+                      style: const TextStyle(
+                        fontStyle: FontStyle.italic,
+                        fontSize: 20,
+                        color: Color.fromARGB(255, 189, 210, 186),
+                        height: 1.6,
                       ),
                     ),
                     const SizedBox(height: 12),
@@ -260,6 +272,7 @@ class _MapMarkersPageState extends State<MapMarkersPage> {
             description: animal['description'] ?? 'No description available',
             imagePath: animal['imagePath'] ?? '', 
             url: animal['redlist_url'] ?? '',
+            redListCategory: animal['redListCategory'] ?? 'Unknown',
             onDismiss: () => Navigator.of(context).pop(), 
           );
         },
