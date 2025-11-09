@@ -218,9 +218,9 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                 _buildNavItem('Quiz', onQuizTap),
                 const SizedBox(width: 15),
                 _buildNavItem('Map', onMapTap),
-                const SizedBox(width: 4),
+                const SizedBox(width: 15),
                 _buildViewAllButton(context, 'View All Species'),
-                const SizedBox(width: 8),
+                const SizedBox(width: 15),
                 _buildSignUpLoginButton(context, 'Sign Up/Log In'),
                 const SizedBox(width: 15),
                 _buildUserProfileButton('User Profile', onProfileTap), 
@@ -268,7 +268,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       child: Text(
         title,
-        style: const TextStyle(color: Colors.black, fontSize: 12),
+        style: const TextStyle(color: Colors.black, fontSize: 20),
       ),
     );
   }
