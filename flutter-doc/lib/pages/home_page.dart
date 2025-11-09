@@ -179,9 +179,9 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                 const SizedBox(width: 4),
                 _buildNavItem('Map', onMapTap),
                 const SizedBox(width: 4),
-                _buildSignUpLoginButton(context, 'Sign Up/Log In', '/contact'),
+                _buildSignUpLoginButton(context, 'Sign Up/Log In'),
                 const SizedBox(width: 8),
-                _buildUserProfileButton(context, 'User Profile', '/adopt'),
+                _buildUserProfileButton(context, 'User Profile'),
                 const SizedBox(width: 8),
 
               ],
@@ -208,7 +208,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-Widget _buildSignUpLoginButton(BuildContext context, String title, String route) {
+Widget _buildSignUpLoginButton(BuildContext context, String title) {
   return OutlinedButton(
     onPressed: () {
       Navigator.push(
@@ -232,7 +232,7 @@ Widget _buildSignUpLoginButton(BuildContext context, String title, String route)
 
 
 
-Widget _buildUserProfileButton(BuildContext context, String title, String route) {
+Widget _buildUserProfileButton(BuildContext context, String title) {
   return ElevatedButton(
     onPressed: () {
            Navigator.push(

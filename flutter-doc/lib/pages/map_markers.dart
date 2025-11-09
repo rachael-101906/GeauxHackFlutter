@@ -3,12 +3,14 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class MapAnimalDialog extends StatelessWidget {
   final String animalName;
   final String description;
   final String imagePath;
+  final String url;
   final VoidCallback onDismiss;
 
   const MapAnimalDialog({
@@ -16,6 +18,7 @@ class MapAnimalDialog extends StatelessWidget {
     required this.animalName,
     required this.description,
     required this.imagePath,
+    required this.url,
     required this.onDismiss,
   });
 
@@ -102,6 +105,25 @@ class MapAnimalDialog extends StatelessWidget {
                         height: 1.6,
                       ),
                     ),
+                    const SizedBox(height: 12),
+                    TextButton(
+                    onPressed: () async {
+                      final uri = Uri.parse(url);
+                      if (await canLaunchUrl(uri)) {
+                        await launchUrl(uri, mode: LaunchMode.externalApplication);
+                      } else {
+                        print('Could not launch $url');
+                      }
+                    },
+                    child: const Text(
+                      'Learn More',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Color(0xFF93B3CD),
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  )
                   ],
                 ),
               ),
@@ -148,10 +170,10 @@ class _MapMarkersPageState extends State<MapMarkersPage> {
       _buildCityMarker(_neotropicalPoint, 'Neotropical', Colors.greenAccent),
       _buildCityMarker(_oceanicPoint, 'Oceanic', const Color(0xFF93B3CD)),
       _buildCityMarker(_nearticPoint, 'Neartic', const Color(0xFFEECE57)),
-      _buildCityMarker(_afrotropicalPoint, 'Afrotropical', const Color(0xFF93B3CD)),
+      _buildCityMarker(_afrotropicalPoint, 'Afrotropical', const Color.fromARGB(255, 76, 88, 223)),
       _buildCityMarker(_palearticPoint, 'Paleartic', const Color(0xFFDD7F78)),
-      _buildCityMarker(_indomalayanPoint, 'Indomalayan', Colors.greenAccent),
-      _buildCityMarker(_australiasianPoint, 'Australasian', const Color(0xFFDD7F78)),
+      _buildCityMarker(_indomalayanPoint, 'Indomalayan', const Color.fromARGB(255, 211, 158, 94)),
+      _buildCityMarker(_australiasianPoint, 'Australasian', const Color.fromARGB(255, 167, 111, 204)),
     ];
   }
 
@@ -238,6 +260,7 @@ class _MapMarkersPageState extends State<MapMarkersPage> {
             animalName: animal['common_name'] ?? 'Unknown Animal',
             description: animal['description'] ?? 'No description available',
             imagePath: animal['imagePath'] ?? '', 
+            url: animal['redlist_url'] ?? '',
             onDismiss: () => Navigator.of(context).pop(), 
           );
         },

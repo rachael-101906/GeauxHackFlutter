@@ -36,8 +36,9 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         child: Column(
           children: [
             const SizedBox(height: 20),
-            Text(FirebaseAuth.instance.currentUser?.email ?? "No User"),
+            Text(FirebaseAuth.instance.currentUser?.email ?? "Not Logged In"),
             const SizedBox(height: 20),
+            if (FirebaseAuth.instance.currentUser != null)
             Text("Status: ${currentUserProfile.status}"),
             
             if (currentUserProfile.status > 0)

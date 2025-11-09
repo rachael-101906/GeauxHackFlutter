@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '/pages/dropdownSelect.dart';
+import 'package:flutter_application_1/components/image_carousel.dart';
 
 class IntroCard extends StatefulWidget {
   const IntroCard({super.key});
@@ -89,19 +90,8 @@ class IntroView extends StatelessWidget {
         // Right side: Image
         Expanded(
           flex: 1,
-          child: Container(
-            height: 440,
-            decoration: ShapeDecoration(
-              image: const DecorationImage(
-                image: AssetImage('assets/images/intro_picture.jpg'),
-                fit: BoxFit.cover,
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-            ),
-          ),
-        ),
+          child:  ImageCarousel(),
+         ),
       ],
     );
   }
@@ -131,17 +121,7 @@ class IntroView extends StatelessWidget {
         ),
         const SizedBox(height: 30),
         Container(
-          height: 300,
-          width: double.infinity,
-          decoration: ShapeDecoration(
-            image: const DecorationImage(
-              image: AssetImage('assets/images/intro_picture.jpg'),
-              fit: BoxFit.cover,
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-          ),
+         child: ImageCarousel(),
         ),
         const SizedBox(height: 30),
         const Text(
