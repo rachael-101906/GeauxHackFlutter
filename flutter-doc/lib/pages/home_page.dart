@@ -42,9 +42,9 @@ class _HomePageState extends State<HomePage> {
       pageBuilder: (context, animation, secondaryAnimation) {
         return Align(
           alignment: Alignment.centerRight,
-          backgroundColor: 
           child: Material(
             child: Container(
+              color: const Color.fromARGB(255, 218, 236, 198),
               width: 350,
               height: MediaQuery.of(context).size.height,
               decoration: BoxDecoration(
