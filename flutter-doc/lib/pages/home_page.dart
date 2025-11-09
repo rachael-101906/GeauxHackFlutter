@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/components/quiz_widget2.dart';
+import 'package:flutter_application_1/pages/footer.dart';
 import '/pages/intro.dart';
+import '/pages/quizView.dart';
+import '/pages/map_markers.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,14 +13,112 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final ScrollController _scrollController = ScrollController();
+
+  final GlobalKey _introKey = GlobalKey();
+  final GlobalKey _mapKey = GlobalKey();
+  final GlobalKey _quizKey = GlobalKey();
+
+  void _scrollToSection(GlobalKey sectionKey) {
+    final context = sectionKey.currentContext;
+    if (context != null) {
+      Scrollable.ensureVisible(
+        context,
+        duration: const Duration(seconds: 1),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
+  void _showQuizModal() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext dialogContext) {
+        return Dialog(
+          backgroundColor: Colors.transparent,
+          insetPadding: const EdgeInsets.all(20),
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 700, maxHeight: 600),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Column(
+              children: [
+                // Header with close button
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFB3CBB2),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Endangered Species Quiz',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF232D25),
+                        ),
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.close),
+                        onPressed: () => Navigator.of(dialogContext).pop(),
+                        color: const Color(0xFF232D25),
+                      ),
+                    ],
+                  ),
+                ),
+                // Quiz content
+                const Expanded(
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: EdgeInsets.all(16),
+                      child: AnimatedQuizSection(),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const NavBar(),
+      appBar: NavBar(
+        onHomeTap: () => _scrollToSection(_introKey),
+        onMapTap: () => _scrollToSection(_mapKey),
+        onQuizTap: () => _scrollToSection(_quizKey),
+        onContactTap: () => _scrollToSection(_mapKey),
+        onAdoptTap: () => _scrollToSection(_mapKey),
+      ),
       body: SingleChildScrollView(
+        controller: _scrollController,
         child: Column(
-          children: const [
-            IntroCard(),
+          children: [
+            IntroCard(key: _introKey),
+            // Quiz card section with key attached
+            Container(
+              key: _quizKey, // Key attached here!
+              child: QuizUI(
+                onQuizButtonPressed: _showQuizModal,
+              ),
+            ),
+            SizedBox(
+              height: 500,
+              child: MapMarkersPage(key: _mapKey),
+            ),
+            const AppFooter(),
           ],
         ),
       ),
@@ -25,7 +127,20 @@ class _HomePageState extends State<HomePage> {
 }
 
 class NavBar extends StatelessWidget implements PreferredSizeWidget {
-  const NavBar({super.key});
+  final VoidCallback onHomeTap;
+  final VoidCallback onMapTap;
+  final VoidCallback onQuizTap;
+  final VoidCallback onContactTap;
+  final VoidCallback onAdoptTap;
+
+  const NavBar({
+    super.key,
+    required this.onHomeTap,
+    required this.onMapTap,
+    required this.onQuizTap,
+    required this.onContactTap,
+    required this.onAdoptTap,
+  });
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -33,6 +148,8 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      elevation: 0,
+      scrolledUnderElevation: 0.0,
       backgroundColor: const Color.fromARGB(255, 218, 236, 198),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -40,12 +157,15 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
           // Left: logo
           Row(
             children: [
-              Image.asset(
-                'assets/images/ecoeden.jpeg',
-                fit: BoxFit.contain,
-                height: 32,
+              SizedBox(
+                height: 80,
+                width: 120,
+                child: Image.asset(
+                  'assets/images/ecoeden.jpeg',
+                  fit: BoxFit.contain,
+                ),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: 10),
             ],
           ),
 
@@ -55,17 +175,15 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                _buildNavItem(context, 'Home', '/home'),
+                _buildNavItem('Home', onHomeTap),
                 const SizedBox(width: 4),
-                _buildNavItem(context, 'Gallery', '/gallery'),
+                _buildNavItem('Quiz', onQuizTap),
                 const SizedBox(width: 4),
-                _buildNavItem(context, 'Map', '/map'),
+                _buildNavItem('Map', onMapTap),
                 const SizedBox(width: 4),
-                _buildNavItem(context, 'Quiz', '/quiz'),
-                const SizedBox(width: 4),
-                _buildContactButton(context, 'Contact Us', '/contact'),
+                _buildContactButton(onContactTap),
                 const SizedBox(width: 8),
-                _buildAdoptButton(context, 'Adopt an Animal', '/adopt'),
+                _buildAdoptButton(onAdoptTap),
                 const SizedBox(width: 8),
               ],
             ),
@@ -74,77 +192,61 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
       ),
     );
   }
-}
 
-Widget _buildNavItem(BuildContext context, String title, String route) {
-  return TextButton(
-    onPressed: () {
-      Navigator.pushNamed(context, route);
-    },
-    style: TextButton.styleFrom(
-      foregroundColor: Colors.black,
-      minimumSize: Size.zero,
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-    ),
-    child: Text(
-      title,
-      style: const TextStyle(color: Colors.black, fontSize: 10),
-    ),
-  );
-}
-
-Widget _buildContactButton(BuildContext context, String title, String route) {
-  return OutlinedButton(
-    onPressed: () {
-      Navigator.pushNamed(context, route);
-    },
-    style: OutlinedButton.styleFrom(
-      side: const BorderSide(
-        width: 2,
-        color: Color.fromARGB(255, 48, 67, 48),
+  Widget _buildNavItem(String title, VoidCallback onTap) {
+    return TextButton(
+      onPressed: onTap,
+      style: TextButton.styleFrom(
+        foregroundColor: Colors.black,
+        minimumSize: Size.zero,
+        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12.0),
-      minimumSize: Size.zero,
-      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      shape: RoundedRectangleBorder(
+      child: Text(
+        title,
+        style: const TextStyle(color: Colors.black, fontSize: 12),
+      ),
+    );
+  }
+
+  Widget _buildContactButton(VoidCallback onTap) {
+    return OutlinedButton(
+      onPressed: onTap,
+      style: OutlinedButton.styleFrom(
         side: const BorderSide(
-          width: 3,
-          strokeAlign: BorderSide.strokeAlignOutside,
-          color: Color(0xFF232D25),
+          width: 2,
+          color: Color.fromARGB(255, 48, 67, 48),
         ),
-        borderRadius: BorderRadius.circular(50),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12.0),
+        minimumSize: Size.zero,
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+        ),
       ),
-    ),
-    child: Text(
-      title,
-      style: const TextStyle(color: Colors.black, fontSize: 10),
-    ),
-  );
-}
+      child: const Text(
+        'Contact Us',
+        style: TextStyle(color: Colors.black, fontSize: 13),
+      ),
+    );
+  }
 
-Widget _buildAdoptButton(BuildContext context, String title, String route) {
-  return ElevatedButton(
-    onPressed: () {
-      Navigator.pushNamed(context, route);
-    },
-    style: ElevatedButton.styleFrom(
-      backgroundColor: const Color.fromARGB(255, 48, 67, 48),
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12.0),
-      minimumSize: Size.zero,
-      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      shape: RoundedRectangleBorder(
-        side: const BorderSide(
-          width: 1,
-          strokeAlign: BorderSide.strokeAlignOutside,
-          color: Color(0xFF232D25),
+  Widget _buildAdoptButton(VoidCallback onTap) {
+    return ElevatedButton(
+      onPressed: onTap,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color.fromARGB(255, 48, 67, 48),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12.0),
+        minimumSize: Size.zero,
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
         ),
-        borderRadius: BorderRadius.circular(50),
       ),
-    ),
-    child: Text(
-      title,
-      style: const TextStyle(color: Colors.white, fontSize: 10),
-    ),
-  );
+      child: const Text(
+        'Adopt an Animal',
+        style: TextStyle(color: Colors.white, fontSize: 13),
+      ),
+    );
+  }
 }
