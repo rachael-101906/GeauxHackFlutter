@@ -1,162 +1,218 @@
 [
   {
+    "id": 1,
+    "class": "Mammal",
     "common_name": "African Elephant",
     "scientific_name": "Loxodonta africana",
     "biome": "Afrotropical",
     "countries": ["Kenya", "Tanzania", "Botswana"],
+    "redListCategory": "EN",
     "redlist_url": "https://www.iucnredlist.org/species/12392/3339343",
-    "category": "EN"
+    "description": "The African elephant is the largest land mammal, known for its intelligence and social structure. Conservation: Poaching for ivory and habitat loss are major threats; conservation efforts include anti-poaching patrols and protected areas.",
+    "imagePath": "./assets/images/cardImages/loxodonta-africana.jpg"
   },
   {
-    "common_name": "Sumatran Orangutan",
-    "scientific_name": "Pongo abelii",
-    "biome": "Indomalayan",
-    "countries": ["Indonesia"],
-    "redlist_url": "https://www.iucnredlist.org/species/39782/102329963",
-    "category": "CR"
-  },
-  {
-    "common_name": "Black Rhino",
-    "scientific_name": "Diceros bicornis",
-    "biome": "Afrotropical",
-    "countries": ["South Africa", "Namibia", "Zimbabwe"],
-    "redlist_url": "https://www.iucnredlist.org/species/6557/102000352",
-    "category": "CR"
-  },
-  {
-    "common_name": "Yangtze Giant Softshell Turtle",
-    "scientific_name": "Rafetus swinhoei",
-    "biome": "Palearctic",
-    "countries": ["China", "Vietnam"],
-    "redlist_url": "https://www.iucnredlist.org/species/1957/2509884",
-    "category": "CR"
-  },
-  {
-    "common_name": "Vaquita",
-    "scientific_name": "Phocoena sinus",
-    "biome": "Neotropical",
-    "countries": ["Mexico"],
-    "redlist_url": "https://www.iucnredlist.org/species/17006/50370483",
-    "category": "CR"
-  },
-  {
-    "common_name": "Mountain Gorilla",
-    "scientific_name": "Gorilla beringei beringei",
-    "biome": "Afrotropical",
-    "countries": ["Rwanda", "Uganda", "DR Congo"],
-    "redlist_url": "https://www.iucnredlist.org/species/39994/17989748",
-    "category": "EN"
-  },
-  {
+    "id": 2,
+    "class": "Mammal",
     "common_name": "Snow Leopard",
     "scientific_name": "Panthera uncia",
     "biome": "Palearctic",
     "countries": ["Nepal", "China", "Mongolia"],
+    "redListCategory": "EN",
     "redlist_url": "https://www.iucnredlist.org/species/22732/50664030",
-    "category": "EN"
+    "description": "Snow leopards are elusive big cats adapted to cold mountainous regions. Conservation: Main threats include poaching and prey depletion; conservation programs involve community-based monitoring and anti-poaching measures.",
+    "imagePath": "./assets/images/cardImages/panthera-uncia.jpeg"
   },
   {
-    "common_name": "Green Turtle",
+    "id": 3,
+    "class": "Mammal",
+    "common_name": "Sumatran Orangutan",
+    "scientific_name": "Pongo abelii",
+    "biome": "Indomalayan",
+    "countries": ["Indonesia"],
+    "redListCategory": "CR",
+    "redlist_url": "https://www.iucnredlist.org/species/39782/102329963",
+    "description": "Sumatran orangutans are critically endangered primates found in the forests of Sumatra. Conservation: Habitat destruction and illegal pet trade are major threats; conservation includes forest protection and rehabilitation programs.",
+    "imagePath": "./assets/images/cardImages/pongo-abelii.jpg"
+  },
+  {
+    "id": 4,
+    "class": "Amphibian",
+    "common_name": "Axolotl",
+    "scientific_name": "Ambystoma mexicanum",
+    "biome": "Freshwater",
+    "countries": ["Mexico"],
+    "redListCategory": "CR",
+    "redlist_url": "https://www.iucnredlist.org/species/1095/53947343",
+    "description": "Axolotls are critically endangered amphibians known for their regenerative abilities. Conservation: Threatened by habitat loss and pollution; conservation includes captive breeding programs and habitat restoration.",
+    "imagePath": "./assets/images/cardImages/ambystoma-mexicanum.jpg"
+  },
+  {
+    "id": 5,
+    "class": "Amphibian",
+    "common_name": "Cowan's Mantella",
+    "scientific_name": "Mantella cowanii",
+    "biome": "Afrotropical",
+    "countries": ["Madagascar"],
+    "redListCategory": "EN",
+    "redlist_url": "https://www.iucnredlist.org/species/57441/60797066",
+    "description": "Cowan's Mantella is a small, brightly colored frog native to Madagascar. Conservation: Habitat destruction threatens its survival; efforts include captive breeding and habitat protection.",
+    "imagePath": "./assets/images/cardImages/mantella-cowanii.jpg"
+  },
+  {
+    "id": 6,
+    "class": "Amphibian",
+    "common_name": "Chinese Giant Salamander",
+    "scientific_name": "Andrias davidianus",
+    "biome": "Freshwater Rivers",
+    "countries": ["China"],
+    "redListCategory": "CR",
+    "redlist_url": "https://www.iucnredlist.org/species/179010104/48438418",
+    "description": "The Chinese giant salamander is the world's largest amphibian. Conservation: Critically endangered due to overharvesting and habitat degradation; conservation involves breeding programs and habitat restoration.",
+    "imagePath": "./assets/images/cardImages/andrias-davidianus.jpg"
+  },
+  {
+    "id": 7,
+    "class": "Reptile",
+    "common_name": "Green Sea Turtle",
     "scientific_name": "Chelonia mydas",
     "biome": "Marine",
-    "countries": ["Australia", "Brazil", "Philippines"],
+    "countries": ["Global (Tropical Waters)"],
+    "redListCategory": "EN",
     "redlist_url": "https://www.iucnredlist.org/species/4615/11037468",
-    "category": "EN"
+    "description": "Green sea turtles are marine turtles found in tropical and subtropical waters. Conservation: Threatened by fishing, habitat loss, and pollution; conservation includes nesting site protection and fisheries regulation.",
+    "imagePath": "./assets/images/cardImages/chelonia-mydas.jpg"
   },
   {
-    "common_name": "Hawksbill Turtle",
-    "scientific_name": "Eretmochelys imbricata",
-    "biome": "Marine",
-    "countries": ["Indonesia", "Australia", "Mexico"],
-    "redlist_url": "https://www.iucnredlist.org/species/8005/12881238",
-    "category": "CR"
+    "id": 8,
+    "class": "Reptile",
+    "common_name": "Komodo Dragon",
+    "scientific_name": "Varanus komodoensis",
+    "biome": "Tropical Savanna",
+    "countries": ["Indonesia"],
+    "redListCategory": "EN",
+    "redlist_url": "https://www.iucnredlist.org/species/22884/123633058",
+    "description": "Komodo dragons are the largest living lizards, native to Indonesian islands. Conservation: Threatened by habitat loss and tourism; conservation includes protected parks and breeding programs.",
+    "imagePath": "./assets/images/cardImages/varanus-komodoensis.jpg"
   },
   {
-    "common_name": "Asian Elephant",
-    "scientific_name": "Elephas maximus",
-    "biome": "Indomalayan",
-    "countries": ["India", "Sri Lanka", "Thailand"],
-    "redlist_url": "https://www.iucnredlist.org/species/7140/12828813",
-    "category": "EN"
-  },
-  {
-    "common_name": "Amur Leopard",
-    "scientific_name": "Panthera pardus orientalis",
-    "biome": "Palearctic",
-    "countries": ["Russia", "China"],
-    "redlist_url": "https://www.iucnredlist.org/species/15954/50659951",
-    "category": "CR"
-  },
-  {
+    "id": 9,
+    "class": "Reptile",
     "common_name": "Orinoco Crocodile",
     "scientific_name": "Crocodylus intermedius",
     "biome": "Neotropical",
     "countries": ["Venezuela", "Colombia"],
-    "redlist_url": "https://www.iucnredlist.org/species/5669/11184591",
-    "category": "CR"
+    "redListCategory": "CR",
+    "redlist_url": "https://www.iucnredlist.org/species/5661/181089024",
+    "description": "Orinoco crocodiles are critically endangered and native to South America. Conservation: Threatened by hunting and habitat loss; conservation includes captive breeding and habitat protection.",
+    "imagePath": "./assets/images/cardImages/crocodylus-intermedius.jpg"
   },
   {
-    "common_name": "Asian Pangolin",
-    "scientific_name": "Manis crassicaudata",
-    "biome": "Indomalayan",
-    "countries": ["India", "Pakistan", "Sri Lanka"],
-    "redlist_url": "https://www.iucnredlist.org/species/12763/123586522",
-    "category": "EN"
-  },
-  {
-    "common_name": "Gooty Sapphire Tarantula",
-    "scientific_name": "Poecilotheria metallica",
-    "biome": "Indomalayan",
-    "countries": ["India"],
-    "redlist_url": "https://www.iucnredlist.org/species/41111/103383276",
-    "category": "CR"
-  },
-  {
-    "common_name": "Red Panda",
-    "scientific_name": "Ailurus fulgens",
-    "biome": "Palearctic",
-    "countries": ["China", "Nepal", "India"],
-    "redlist_url": "https://www.iucnredlist.org/species/714/110018718",
-    "category": "EN"
-  },
-  {
-    "common_name": "Irrawaddy Dolphin",
-    "scientific_name": "Orcaella brevirostris",
-    "biome": "Neotropical",
-    "countries": ["Bangladesh", "Cambodia", "Vietnam"],
-    "redlist_url": "https://www.iucnredlist.org/species/15419/50366040",
-    "category": "EN"
-  },
-  {
-    "common_name": "Asian Lion",
-    "scientific_name": "Panthera leo persica",
-    "biome": "Indomalayan",
-    "countries": ["India"],
-    "redlist_url": "https://www.iucnredlist.org/species/15951/50659751",
-    "category": "EN"
-  },
-  {
-    "common_name": "Gooty Spider",
-    "scientific_name": "Poecilotheria rufilata",
-    "biome": "Indomalayan",
-    "countries": ["India"],
-    "redlist_url": "https://www.iucnredlist.org/species/41110/103383275",
-    "category": "CR"
-  },
-  {
-    "common_name": "Leatherback Turtle",
-    "scientific_name": "Dermochelys coriacea",
+    "id": 10,
+    "class": "Fish",
+    "common_name": "Great White Shark",
+    "scientific_name": "Carcharodon carcharias",
     "biome": "Marine",
-    "countries": ["Australia", "Mexico", "Indonesia"],
-    "redlist_url": "https://www.iucnredlist.org/species/6494/43519944",
-    "category": "CR"
+    "countries": ["Global"],
+    "redListCategory": "VU",
+    "redlist_url": "https://www.iucnredlist.org/species/3855/212629880",
+    "description": "Great white sharks are large predatory fish found worldwide. Conservation: Vulnerable due to overfishing and finning; conservation involves fishing regulations and marine protected areas.",
+    "imagePath": "./assets/images/cardImages/carcharodon-carcharias.jpg"
   },
   {
-    "common_name": "Javan Rhinoceros",
-    "scientific_name": "Rhinoceros sondaicus",
-    "biome": "Indomalayan",
-    "countries": ["Indonesia"],
-    "redlist_url": "https://www.iucnredlist.org/species/19495/123105847",
-    "category": "CR"
+    "id": 11,
+    "class": "Fish",
+    "common_name": "Atlantic Bluefin Tuna",
+    "scientific_name": "Thunnus thynnus",
+    "biome": "Marine",
+    "countries": ["Atlantic Ocean"],
+    "redListCategory": "LC",
+    "redlist_url": "https://www.iucnredlist.org/species/21860/46913402",
+    "description": "Atlantic Bluefin tuna are large, fast-swimming fish. Conservation: Currently least concern but historically overfished; conservation involves catch quotas and sustainable fisheries.",
+    "imagePath": "./assets/images/cardImages/thunnus-thynnus.jpg"
+  },
+  {
+    "id": 12,
+    "class": "Fish",
+    "common_name": "White Sturgeon",
+    "scientific_name": "Acipenser transmontanus",
+    "biome": "Marine",
+    "countries": ["Canada", "United States"],
+    "redListCategory": "EN",
+    "redlist_url": "https://www.iucnredlist.org/species/103290570/103290575",
+    "description": "White sturgeons are long-lived freshwater fish. Conservation: Endangered due to habitat modification and overfishing; conservation involves habitat protection and restocking programs.",
+    "imagePath": "./assets/images/cardImages/acipenser-transmontanus.jpeg"
+  },
+  {
+    "id": 13,
+    "class": "Insect",
+    "common_name": "Monarch Butterfly",
+    "scientific_name": "Danaus plexippus",
+    "biome": "Temperate Forests & Meadows",
+    "countries": ["North America"],
+    "redListCategory": "LC",
+    "redlist_url": "https://www.iucnredlist.org/species/159971/219149911",
+    "description": "Monarch butterflies are migratory insects known for their long-distance travel. Conservation: Habitat loss and pesticide use threaten populations; conservation includes habitat restoration and milkweed planting.",
+    "imagePath": "./assets/images/cardImages/danaus-plexippus.jpg"
+  },
+  {
+    "id": 14,
+    "class": "Insect",
+    "common_name": "Moth",
+    "scientific_name": "Neomariania scriptella",
+    "biome": "Tropical Rainforest",
+    "countries": ["Portugal"],
+    "redListCategory": "EN",
+    "redlist_url": "https://www.iucnredlist.org/species/97239466/135855640",
+    "description": "Neomariania scriptella is a rare moth species. Conservation: Endangered due to habitat destruction; conservation includes habitat monitoring and protection programs.",
+    "imagePath": "./assets/images/cardImages/neomariania-scriptella.jpg"
+  },
+  {
+    "id": 15,
+    "class": "Insect",
+    "common_name": "American Burying Beetle",
+    "scientific_name": "Nicrophorus americanus",
+    "biome": "Tropical Rainforest",
+    "countries": ["North America"],
+    "redListCategory": "CR",
+    "redlist_url": "https://www.iucnredlist.org/species/14760/4460296",
+    "description": "The American burying beetle is critically endangered and helps recycle nutrients. Conservation: Threatened by habitat loss and fragmentation; conservation includes captive breeding and reintroduction programs.",
+    "imagePath": "./assets/images/cardImages/nicrophorus-americanus.jpg"
+  },
+  {
+    "id": 16,
+    "class": "Bird",
+    "common_name": "Bald Eagle",
+    "scientific_name": "Haliaeetus leucocephalus",
+    "biome": "Forests and Wetlands",
+    "countries": ["North America"],
+    "redListCategory": "LC",
+    "redlist_url": "https://www.iucnredlist.org/species/22695144/264598530",
+    "description": "The bald eagle is a large bird of prey native to North America. Conservation: Populations have recovered due to habitat protection and pesticide bans.",
+    "imagePath": "./assets/images/cardImages/haliaeetus-leucocephalus.jpg"
+  },
+  {
+    "id": 17,
+    "class": "Bird",
+    "common_name": "Kakapo",
+    "scientific_name": "Strigops habroptilus",
+    "biome": "Temperate Forest",
+    "countries": ["New Zealand"],
+    "redListCategory": "CR",
+    "redlist_url": "https://www.iucnredlist.org/species/22685245/129751169",
+    "description": "Kakapos are nocturnal, flightless parrots critically endangered in New Zealand. Conservation: Conservation efforts include intensive monitoring, predator-free islands, and captive breeding.",
+    "imagePath": "./assets/images/cardImages/strigopsi-habroptilus.jpg"
+  },
+  {
+    "id": 18,
+    "class": "Bird",
+    "common_name": "Philippine Eagle",
+    "scientific_name": "Pithecophaga jefferyi",
+    "biome": "Tropical Forest",
+    "countries": ["Philippines"],
+    "redListCategory": "CR",
+    "redlist_url": "https://www.iucnredlist.org/species/22696012/273773083",
+    "description": "The Philippine eagle is a critically endangered bird of prey. Conservation: Main threats include deforestation and hunting; conservation includes habitat protection and captive breeding programs.",
+    "imagePath": "./assets/images/cardImages/pithecophaga-jefferyi.jpg"
   }
 ]
