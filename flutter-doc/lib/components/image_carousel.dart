@@ -17,8 +17,6 @@ class ImageCarousel extends StatelessWidget {
        'images/insect.jpeg',
       'images/tiger.jpeg',
       'images/whale.jpeg',
-
-
     ];
 
     return Center(

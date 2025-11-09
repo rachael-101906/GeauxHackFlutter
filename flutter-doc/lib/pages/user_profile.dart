@@ -37,7 +37,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           child: Column(
             children: [
               const SizedBox(height: 20),
-              Text("Mike the Tiger", style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 20),),
+              Text("Mike the Tiger"),
               const SizedBox(height: 20),
               Text(FirebaseAuth.instance.currentUser?.email ?? "No User/Email"),
               const SizedBox(height: 20),

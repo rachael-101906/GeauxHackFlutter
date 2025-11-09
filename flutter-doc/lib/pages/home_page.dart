@@ -44,20 +44,21 @@ class _HomePageState extends State<HomePage> {
           alignment: Alignment.centerRight,
           child: Material(
             child: Container(
+            // Removed the standalone 'color' property here
+            width: 350,
+            height: MediaQuery.of(context).size.height,
+            decoration: BoxDecoration(
+              // ✅ Corrected: Moved the color inside the BoxDecoration
               color: const Color.fromARGB(255, 218, 236, 198),
-              width: 350,
-              height: MediaQuery.of(context).size.height,
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 218, 236, 198),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.3),
-                    blurRadius: 10,
-                    offset: const Offset(-5, 0),
-                  ),
-                ],
-              ),
-              child: const UserProfileScreen(),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.3),
+                  blurRadius: 10,
+                  offset: const Offset(-5, 0),
+                ),
+              ],
+            ),
+            child: const UserProfileScreen(),
             ),
           ),
         );
@@ -77,97 +78,97 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void _showQuizModal() {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext dialogContext) {
-        return Dialog(
-          backgroundColor: Colors.transparent,
-          insetPadding: const EdgeInsets.all(20),
-          child: Container(
-            constraints: const BoxConstraints(maxWidth: 700, maxHeight: 600),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Column(
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFB3CBB2),
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
+    void _showQuizModal() {
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext dialogContext) {
+          return Dialog(
+            backgroundColor: Colors.transparent,
+            insetPadding: const EdgeInsets.all(20),
+            child: Container(
+              constraints: const BoxConstraints(maxWidth: 700, maxHeight: 600),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFB3CBB2),
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                      ),
                     ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        'Endangered Species Quiz',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF232D25),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Endangered Species Quiz',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF232D25),
+                          ),
                         ),
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.close),
-                        onPressed: () => Navigator.of(dialogContext).pop(),
-                        color: const Color(0xFF232D25),
-                      ),
-                    ],
-                  ),
-                ),
-                const Expanded(
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: EdgeInsets.all(16),
-                      child: AnimatedQuizSection(),
+                        IconButton(
+                          icon: const Icon(Icons.close),
+                          onPressed: () => Navigator.of(dialogContext).pop(),
+                          color: const Color(0xFF232D25),
+                        ),
+                      ],
                     ),
                   ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: NavBar(
-        onHomeTap: () => _scrollToSection(_introKey),
-        onMapTap: () => _scrollToSection(_mapKey),
-        onQuizTap: () => _scrollToSection(_quizKey),
-        onProfileTap: _showProfileModal, 
-      ),
-      body: SingleChildScrollView(
-        controller: _scrollController,
-        child: Column(
-          children: [
-            IntroCard(key: _introKey),
-            Container(
-              key: _quizKey,
-              child: QuizUI(
-                onQuizButtonPressed: _showQuizModal,
+                  Expanded( 
+                    child: SingleChildScrollView(
+                      child: Padding(
+                        padding: EdgeInsets.all(16),
+                        child: AnimatedQuizSection(),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            SizedBox(
-              height: 500,
-              child: MapMarkersPage(key: _mapKey),
-            ),
-            const AppFooter(),
-          ],
+          );
+        },
+      );
+    }
+
+    @override
+    Widget build(BuildContext context) {
+      return Scaffold(
+        appBar: NavBar(
+          onHomeTap: () => _scrollToSection(_introKey),
+          onMapTap: () => _scrollToSection(_mapKey),
+          onQuizTap: () => _scrollToSection(_quizKey),
+          onProfileTap: _showProfileModal, 
         ),
-      ),
-    );
+        body: SingleChildScrollView(
+          controller: _scrollController,
+          child: Column(
+            children: [
+              IntroCard(key: _introKey),
+              Container(
+                key: _quizKey,
+                child: QuizUI(
+                  onQuizButtonPressed: _showQuizModal,
+                ),
+              ),
+              SizedBox(
+                height: 500,
+                child: MapMarkersPage(key: _mapKey),
+              ),
+              const AppFooter(),
+            ],
+          ),
+        ),
+      );
+    }
   }
-}
 
 class NavBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback onHomeTap;

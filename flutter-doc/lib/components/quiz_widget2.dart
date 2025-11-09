@@ -101,22 +101,14 @@ class _AnimatedQuizSectionState extends State<AnimatedQuizSection> {
       child: QuizWidget(
         questions: _questions,
         config: const QuizConfig(
-          backgroundColor: Color.fromARGB(255, 81, 118, 89),
-          cornerRadius: 16,
-          padding: EdgeInsets.all(24),
-          showProgressIndicator: true,
-          requireAnswerToProgress: true,
-          allowBackwardNavigation: true,
-          enableAutoNavigation: true,
-          autoNavigationDelay: Duration(milliseconds: 1000),
-          useGradientBackground: true,
-          gradientColors: [
-            Color.fromARGB(255, 54, 62, 56),
-            Color.fromARGB(255, 76, 96, 81),
-            Color.fromARGB(255, 141, 152, 144),
-            
-          ],
-        ),
+        useGradientBackground: true,
+        gradientColors: [
+          Color.fromARGB(255, 54, 62, 56),
+          Color.fromARGB(255, 76, 96, 81),
+          Color.fromARGB(255, 141, 152, 144),
+        ],
+      ),
+      
         onAnswerChanged: (question, answer) {
           debugPrint('Question ${question.id}: $answer');
         },
