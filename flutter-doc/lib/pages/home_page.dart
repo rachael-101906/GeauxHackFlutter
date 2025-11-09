@@ -6,6 +6,7 @@ import '/pages/quizView.dart';
 import '/pages/map_markers.dart';
 import 'signup_page.dart';
 import 'user_profile.dart';
+import 'view_all.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -219,6 +220,8 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                 const SizedBox(width: 4),
                 _buildNavItem('Map', onMapTap),
                 const SizedBox(width: 4),
+                _buildViewAllButton(context, 'View All Species'),
+                const SizedBox(width: 8),
                 _buildSignUpLoginButton(context, 'Sign Up/Log In'),
                 const SizedBox(width: 8),
                 _buildUserProfileButton('User Profile', onProfileTap), 
@@ -230,6 +233,8 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
       ),
     );
   }
+
+  
 
   Widget _buildNavItem(String title, VoidCallback onTap) {
     return TextButton(
@@ -246,6 +251,29 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
       ),
     );
   }
+
+  Widget _buildViewAllButton(BuildContext context, String title) {
+    return OutlinedButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const ViewAllPage()),
+        );
+      },
+      style: OutlinedButton.styleFrom(
+        side: const BorderSide(
+          width: 2,
+          color: Color.fromARGB(255, 48, 67, 48),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      ),
+      child: Text(
+        title,
+        style: const TextStyle(color: Colors.black, fontSize: 12),
+      ),
+    );
+  }
+
 
   Widget _buildSignUpLoginButton(BuildContext context, String title) {
     return OutlinedButton(
