@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart' show rootBundle;
+import 'dart:math';
 
 class DropdownSelect extends StatefulWidget {
   const DropdownSelect({super.key});
@@ -9,7 +12,7 @@ class DropdownSelect extends StatefulWidget {
 
 class _DropdownSelectState extends State<DropdownSelect> {
   String? selectedType;
-  String? selectedBiome;
+  List<dynamic>? organisms;
   final GlobalKey _buttonKey = GlobalKey();
   OverlayEntry? _overlayEntry;
   bool _isToolTipVisible = false;
@@ -23,14 +26,21 @@ class _DropdownSelectState extends State<DropdownSelect> {
     'Insect',
   ];
 
-  final List<String> biomes = [
-    'Forest',
-    'Desert',
-    'Grassland',
-    'Tundra',
-    'Freshwater',
-    'Marine',
-  ];
+  // Map dropdown values to JSON class names
+  final Map<String, String> typeToClass = {
+    'Mammal': 'Mammalia',
+    'Bird': 'Aves',
+    'Reptile': 'Reptilia',
+    'Amphibian': 'Amphibia',
+    'Fish': 'Pisces',
+    'Insect': 'Insecta',
+  };
+
+  @override
+  void initState() {
+    super.initState();
+    _loadOrganisms();
+  }
 
   @override
   void dispose() {
@@ -38,36 +48,92 @@ class _DropdownSelectState extends State<DropdownSelect> {
     super.dispose();
   }
 
-  void _showToolTip(String animalName, String description) {
+  Future<void> _loadOrganisms() async {
+    String jsonString = await rootBundle.loadString('assets/databases/organismsList.json');
+    setState(() {
+      organisms = json.decode(jsonString);
+    });
+  }
+
+  void _showToolTip(String animalName, String description, String imagePath) {
     _removeToolTip();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final overlay = Overlay.of(context);
-      if (overlay == null) return;
+    final overlay = Overlay.of(context);
+    if (overlay == null) return;
 
-      _overlayEntry = OverlayEntry(
-        builder: (context) => GestureDetector(
-          onTap: _removeToolTip,
-          behavior: HitTestBehavior.translucent,
-          child: Container(
-            color: Colors.transparent,
-            child: AnimalToolTip(
-              targetKey: _buttonKey,
-              animalName: animalName,
-              description: description,
-              onDismiss: _removeToolTip,
+    final RenderBox renderBox =
+        _buttonKey.currentContext!.findRenderObject() as RenderBox;
+    final Offset offset = renderBox.localToGlobal(Offset.zero);
+    final Size size = renderBox.size;
+
+    _overlayEntry = OverlayEntry(
+      builder: (context) => GestureDetector(
+        onTap: _removeToolTip,
+        behavior: HitTestBehavior.translucent,
+        child: Stack(
+          children: [  
+            Container(color: Colors.transparent),
+
+            Positioned(
+              left: offset.dx,
+              top: offset.dy - 320, 
+              child: AnimalToolTip(
+                animalName: animalName,
+                description: description,
+                imagePath: imagePath,
+                onDismiss: _removeToolTip,
+              ),
             ),
-          ),
+          ],
         ),
-      );
+      ),
+    );
 
-      overlay.insert(_overlayEntry!);
-    });
+    overlay.insert(_overlayEntry!);
   }
 
   void _removeToolTip() {
     _overlayEntry?.remove();
     _overlayEntry = null;
+    setState(() => _isToolTipVisible = false);
+  }
+
+  void _generateRandomAnimal() {
+    if (selectedType == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please select a type'),
+          backgroundColor: Color(0xFF232E26),
+        ),
+      );
+      return;
+    }
+
+    setState(() => _isToolTipVisible = true);
+
+    Future.delayed(const Duration(milliseconds: 300), () {
+      if (organisms == null) return;
+
+      List<dynamic> filteredList = organisms!.where((organism) => organism['class'] == selectedType).toList();
+      
+      if (filteredList.isEmpty) {
+        setState(() => _isToolTipVisible = false);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('No animals found for $selectedType'),
+            backgroundColor: Color(0xFF232E26),
+          ),
+        );
+        return;
+      }
+
+      int randomIndex = Random().nextInt(filteredList.length);
+      String animalName = filteredList[randomIndex]['common_name'];
+      String description = filteredList[randomIndex]['description'] ?? 'No description available';
+      String imagePath = filteredList[randomIndex]['imagePath'];
+
+      _showToolTip(animalName, description, imagePath);
+    });
   }
 
   @override
@@ -77,28 +143,29 @@ class _DropdownSelectState extends State<DropdownSelect> {
       children: [
         Row(
           children: [
-            Expanded(child: _buildTypeDropdown()),
-            const SizedBox(width: 20),
-            Expanded(child: _buildBiomeDropdown()),
+            SizedBox(width: 250, child: _buildTypeDropdown()),
           ],
         ),
         const SizedBox(height: 20),
-        ElevatedButton(
-          key: _buttonKey,
-          onPressed: !_isToolTipVisible ? _generateRandomAnimal : null,
-          style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFFD9EFDE),
-            foregroundColor: const Color(0xFF232E26),
-            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+        Center(
+          child: ElevatedButton(
+            key: _buttonKey,
+            onPressed: _isToolTipVisible ? null : _generateRandomAnimal,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xFFD9EFDE),
+              foregroundColor: const Color(0xFF232E26),
+              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+              minimumSize: const Size(30, 40),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
             ),
-          ),
-          child: const Text(
-            'Generate Random Animal',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
+            child: const Text(
+              'Generate!',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         ),
@@ -107,112 +174,85 @@ class _DropdownSelectState extends State<DropdownSelect> {
   }
 
   Widget _buildTypeDropdown() {
-    return Container(
+    return DropdownContainer(
+      value: selectedType,
+      hint: 'Select Type',
+      items: types,
+      onChanged: (val) => setState(() => selectedType = val),
+    );
+  }
+}
+
+class DropdownContainer extends StatelessWidget {
+  final String? value;
+  final String hint;
+  final List<String> items;
+  final ValueChanged<String?> onChanged;
+
+  const DropdownContainer({
+    super.key,
+    required this.value,
+    required this.hint,
+    required this.items,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: const Color(0xFFD9EFDE), width: 2),
-      ),
-      child: DropdownButton<String>(
-        value: selectedType,
-        hint: const Text(
-          'Select Type',
-          style: TextStyle(color: Colors.grey),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: value != null ? const Color(0xFF68B684) : const Color(0xFFD9EFDE),
+          width: 2,
         ),
-        isExpanded: true,
-        underline: const SizedBox(),
-        icon: const Icon(Icons.arrow_drop_down, color: Color(0xFF232E26)),
-        style: const TextStyle(color: Color(0xFF232E26), fontSize: 16),
-        dropdownColor: Colors.white,
-        onChanged: (String? newValue) {
-          setState(() {
-            selectedType = newValue;
-          });
-        },
-        items: types.map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
-            value: value,
-            child: Text(value),
-          );
-        }).toList(),
+        boxShadow: value != null
+            ? [
+                BoxShadow(
+                  color: const Color(0xFF68B684).withOpacity(0.3),
+                  blurRadius: 12,
+                  offset: const Offset(0, 4),
+                ),
+              ]
+            : [],
+      ),
+      child: DropdownButtonHideUnderline(
+        child: DropdownButton<String>(
+          value: value,
+          hint: Text(hint, style: const TextStyle(color: Colors.grey)),
+          isExpanded: true,
+          icon: Icon(
+            Icons.arrow_drop_down_circle,
+            color: value != null ? const Color(0xFF68B684) : const Color(0xFF232E26),
+          ),
+          dropdownColor: Colors.white,
+          style: const TextStyle(
+            color: Color(0xFF232E26),
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
+          onChanged: onChanged,
+          items: items.map((e) => DropdownMenuItem(value: e, child: Text(e))).toList(),
+        ),
       ),
     );
-  }
-
-  Widget _buildBiomeDropdown() {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: const Color(0xFFD9EFDE), width: 2),
-      ),
-      child: DropdownButton<String>(
-        value: selectedBiome,
-        hint: const Text(
-          'Select Biome',
-          style: TextStyle(color: Colors.grey),
-        ),
-        isExpanded: true,
-        underline: const SizedBox(),
-        icon: const Icon(Icons.arrow_drop_down, color: Color(0xFF232E26)),
-        style: const TextStyle(color: Color(0xFF232E26), fontSize: 16),
-        dropdownColor: Colors.white,
-        onChanged: (String? newValue) {
-          setState(() {
-            selectedBiome = newValue;
-          });
-        },
-        items: biomes.map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
-            value: value,
-            child: Text(value),
-          );
-        }).toList(),
-      ),
-    );
-  }
-
-  void _generateRandomAnimal() {
-    if (selectedType == null || selectedBiome == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Please select both a type and a biome'),
-          backgroundColor: Color(0xFF232E26),
-        ),
-      );
-    } else {
-      // Example logic (replace with actual implementation)
-      setState(() {
-        _isToolTipVisible = true;
-      });
-
-      Future.delayed(const Duration(milliseconds: 500), () {
-        String animalName = 'Sample Animal';
-        String description = 'This is a sample description of the animal.';
-
-        setState(() {
-          _isToolTipVisible = false;
-        });
-
-        _showToolTip(animalName, description);
-      });
-    }
   }
 }
 
 class AnimalToolTip extends StatefulWidget {
   final String animalName;
-  final GlobalKey? targetKey;
   final String description;
+  final String imagePath;
   final VoidCallback onDismiss;
 
   const AnimalToolTip({
     super.key,
     required this.animalName,
     required this.description,
-    required this.targetKey,
+    required this.imagePath,
     required this.onDismiss,
   });
 
@@ -222,9 +262,9 @@ class AnimalToolTip extends StatefulWidget {
 
 class _AnimalToolTipState extends State<AnimalToolTip>
     with SingleTickerProviderStateMixin {
-  late AnimationController _animationController;
-  late Animation<double> _fadeAnimation;
-  late Animation<Offset> _slideAnimation;
+  late final AnimationController _animationController;
+  late final Animation<double> _fadeAnimation;
+  late final Animation<double> _scaleAnimation;
 
   @override
   void initState() {
@@ -234,20 +274,12 @@ class _AnimalToolTipState extends State<AnimalToolTip>
       vsync: this,
     );
 
-    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(
-        parent: _animationController,
-        curve: Curves.easeInOut,
-      ),
+    _fadeAnimation = CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeInOut,
     );
 
-    _slideAnimation =
-        Tween<Offset>(begin: const Offset(0, 0.1), end: Offset.zero).animate(
-      CurvedAnimation(
-        parent: _animationController,
-        curve: Curves.easeInOut,
-      ),
-    );
+    _scaleAnimation = Tween<double>(begin: 0.8, end: 1.0).animate(_fadeAnimation);
 
     _animationController.forward();
   }
@@ -258,83 +290,113 @@ class _AnimalToolTipState extends State<AnimalToolTip>
     super.dispose();
   }
 
-  Offset _getToolTipPosition() {
-    final RenderBox renderBox =
-        widget.targetKey!.currentContext!.findRenderObject() as RenderBox;
-
-    final Size size = renderBox.size;
-    final Offset offset = renderBox.localToGlobal(Offset.zero);
-    return Offset(offset.dx + size.width / 2, offset.dy);
-  }
-
   @override
   Widget build(BuildContext context) {
-    final toolTipPosition = _getToolTipPosition();
-
-    return Positioned(
-      left: toolTipPosition.dx,
-      top: toolTipPosition.dy - 10,
-      child: SlideTransition(
-        position: _slideAnimation,
-        child: FadeTransition(
-          opacity: _fadeAnimation,
-          child: Material(
-            color: Colors.transparent,
-            child: Container(
-              width: 300,
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: const Color(0xFFD9EFDE),
-                borderRadius: BorderRadius.circular(8),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black,
-                    blurRadius: 8,
-                    offset: const Offset(0, 4),
-                  ),
-                ],
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const SizedBox(width: 8),
-                  IconButton(
-                    icon: Image.asset(
-                      'assets/images/intro_picture.jpg',
-                      width: double.infinity,
-                      height: 100,
+    return FadeTransition(
+      opacity: _fadeAnimation,
+      child: ScaleTransition(
+        scale: _scaleAnimation,
+        child: Material(
+          color: Colors.transparent,
+          child: Container(
+            width: 360,
+            decoration: BoxDecoration(
+              color: const Color(0xFFD9EFDE),
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black,
+                  blurRadius: 24,
+                  offset: const Offset(0, 12),
+                ),
+              ],
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                      ),
+                      child: Image.network(
+                        widget.imagePath,
+                        width: double.infinity,
+                        height: 200,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Container(
+                            width: double.infinity,
+                            height: 200,
+                            color: const Color(0xFF68B684),
+                            child: const Icon(
+                              Icons.image_not_supported,
+                              size: 50,
+                              color: Colors.white,
+                            ),
+                          );
+                        },
+                        loadingBuilder: (context, child, loadingProgress) {
+                          if (loadingProgress == null) return child;
+                          return Container(
+                            width: double.infinity,
+                            height: 200,
+                            color: const Color(0xFF68B684),
+                            child: const Center(
+                              child: CircularProgressIndicator(
+                                color: Colors.white,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
                     ),
-                    tooltip: 'Close',
-                    iconSize: 100,
-                    onPressed: () {
-                      widget.onDismiss();
-                    },
-                  ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Text(
-                          widget.animalName,
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF232E26),
+                    Positioned(
+                      top: 12,
+                      right: 12,
+                      child: InkWell(
+                        onTap: widget.onDismiss,
+                        borderRadius: BorderRadius.circular(50),
+                        child: Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                            shape: BoxShape.circle,
                           ),
+                          child: const Icon(Icons.close, color: Colors.white, size: 20),
                         ),
-                        Text(
-                          widget.description,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            color: Color(0xFF232E26),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        widget.animalName,
+                        style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF232E26),
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      Text(
+                        widget.description,
+                        style: const TextStyle(
+                          fontSize: 15,
+                          color: Color(0xFF232E26),
+                          height: 1.6,
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
