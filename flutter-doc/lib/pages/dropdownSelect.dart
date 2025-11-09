@@ -26,16 +26,6 @@ class _DropdownSelectState extends State<DropdownSelect> {
     'Insect',
   ];
 
-  // Map dropdown values to JSON class names
-  final Map<String, String> typeToClass = {
-    'Mammal': 'Mammalia',
-    'Bird': 'Aves',
-    'Reptile': 'Reptilia',
-    'Amphibian': 'Amphibia',
-    'Fish': 'Pisces',
-    'Insect': 'Insecta',
-  };
-
   @override
   void initState() {
     super.initState();
@@ -136,42 +126,38 @@ class _DropdownSelectState extends State<DropdownSelect> {
     });
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Row(
-          children: [
-            SizedBox(width: 250, child: _buildTypeDropdown()),
-          ],
-        ),
-        const SizedBox(height: 20),
-        Center(
-          child: ElevatedButton(
-            key: _buttonKey,
-            onPressed: _isToolTipVisible ? null : _generateRandomAnimal,
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFFD9EFDE),
-              foregroundColor: const Color(0xFF232E26),
-              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
-              minimumSize: const Size(30, 40),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
+@override
+Widget build(BuildContext context) {
+  return Row(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      SizedBox(width: 250, child: _buildTypeDropdown()),
+      const SizedBox(width: 20),
+      SizedBox(
+        height: 60,
+        child: ElevatedButton(
+          key: _buttonKey,
+          onPressed: _isToolTipVisible ? null : _generateRandomAnimal,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFFD9EFDE),
+            foregroundColor: const Color(0xFF232E26),
+            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
             ),
-            child: const Text(
-              'Generate!',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
+          ),
+          child: const Text(
+            'Generate!',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),
-      ],
-    );
-  }
+      ),
+    ],
+  );
+}
 
   Widget _buildTypeDropdown() {
     return DropdownContainer(
@@ -212,7 +198,7 @@ class DropdownContainer extends StatelessWidget {
         boxShadow: value != null
             ? [
                 BoxShadow(
-                  color: const Color(0xFF68B684).withOpacity(0.3),
+                  color: const Color(0xFF68B684),
                   blurRadius: 12,
                   offset: const Offset(0, 4),
                 ),
@@ -321,7 +307,7 @@ class _AnimalToolTipState extends State<AnimalToolTip>
                         topLeft: Radius.circular(20),
                         topRight: Radius.circular(20),
                       ),
-                      child: Image.network(
+                      child: Image.asset(
                         widget.imagePath,
                         width: double.infinity,
                         height: 200,
@@ -335,19 +321,6 @@ class _AnimalToolTipState extends State<AnimalToolTip>
                               Icons.image_not_supported,
                               size: 50,
                               color: Colors.white,
-                            ),
-                          );
-                        },
-                        loadingBuilder: (context, child, loadingProgress) {
-                          if (loadingProgress == null) return child;
-                          return Container(
-                            width: double.infinity,
-                            height: 200,
-                            color: const Color(0xFF68B684),
-                            child: const Center(
-                              child: CircularProgressIndicator(
-                                color: Colors.white,
-                              ),
                             ),
                           );
                         },

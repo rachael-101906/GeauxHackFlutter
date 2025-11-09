@@ -8,8 +8,8 @@
     "countries": ["Kenya", "Tanzania", "Botswana"],
     "redListCategory": "EN",
     "redlist_url": "https://www.iucnredlist.org/species/12392/3339343",
-    "imagePath": "/cardImages/loxodonta-africana.jpg",
-    "description": "The African elephant is the largest land mammal, known for its intelligence and social structure. Conservation: Poaching for ivory and habitat loss are major threats; conservation efforts include anti-poaching patrols and protected areas."
+    "description": "The African elephant is the largest land mammal, known for its intelligence and social structure. Conservation: Poaching for ivory and habitat loss are major threats; conservation efforts include anti-poaching patrols and protected areas.",
+    "imagePath": "./assets/images/cardImages/loxodonta-africana.jpg"
   },
   {
     "id": 2,
@@ -20,8 +20,8 @@
     "countries": ["Nepal", "China", "Mongolia"],
     "redListCategory": "EN",
     "redlist_url": "https://www.iucnredlist.org/species/22732/50664030",
-    "imagePath": "/cardImages/panthera-uncia.jpg",
-    "description": "Snow leopards are elusive big cats adapted to cold mountainous regions. Conservation: Main threats include poaching and prey depletion; conservation programs involve community-based monitoring and anti-poaching measures."
+    "description": "Snow leopards are elusive big cats adapted to cold mountainous regions. Conservation: Main threats include poaching and prey depletion; conservation programs involve community-based monitoring and anti-poaching measures.",
+    "imagePath": "./assets/images/cardImages/panthera-uncia.jpeg"
   },
   {
     "id": 3,
@@ -32,8 +32,8 @@
     "countries": ["Indonesia"],
     "redListCategory": "CR",
     "redlist_url": "https://www.iucnredlist.org/species/39782/102329963",
-    "imagePath": "/cardImages/pongo-abelii.jpg",
-    "description": "Sumatran orangutans are critically endangered primates found in the forests of Sumatra. Conservation: Habitat destruction and illegal pet trade are major threats; conservation includes forest protection and rehabilitation programs."
+    "description": "Sumatran orangutans are critically endangered primates found in the forests of Sumatra. Conservation: Habitat destruction and illegal pet trade are major threats; conservation includes forest protection and rehabilitation programs.",
+    "imagePath": "./assets/images/cardImages/pongo-abelii.jpg"
   },
   {
     "id": 4,
@@ -44,8 +44,8 @@
     "countries": ["Mexico"],
     "redListCategory": "CR",
     "redlist_url": "https://www.iucnredlist.org/species/1095/53947343",
-    "imagePath": "/cardImages/ambystoma-mexicanum.jpg",
-    "description": "Axolotls are critically endangered amphibians known for their regenerative abilities. Conservation: Threatened by habitat loss and pollution; conservation includes captive breeding programs and habitat restoration."
+    "description": "Axolotls are critically endangered amphibians known for their regenerative abilities. Conservation: Threatened by habitat loss and pollution; conservation includes captive breeding programs and habitat restoration.",
+    "imagePath": "./assets/images/cardImages/ambystoma-mexicanum.jpg"
   },
   {
     "id": 5,
@@ -56,8 +56,8 @@
     "countries": ["Madagascar"],
     "redListCategory": "EN",
     "redlist_url": "https://www.iucnredlist.org/species/57441/60797066",
-    "imagePath": "/cardImages/mantella-cowanii.jpg",
-    "description": "Cowan's Mantella is a small, brightly colored frog native to Madagascar. Conservation: Habitat destruction threatens its survival; efforts include captive breeding and habitat protection."
+    "description": "Cowan's Mantella is a small, brightly colored frog native to Madagascar. Conservation: Habitat destruction threatens its survival; efforts include captive breeding and habitat protection.",
+    "imagePath": "./assets/images/cardImages/mantella-cowanii.jpg"
   },
   {
     "id": 6,
@@ -68,8 +68,8 @@
     "countries": ["China"],
     "redListCategory": "CR",
     "redlist_url": "https://www.iucnredlist.org/species/179010104/48438418",
-    "imagePath": "/cardImages/andrias-davidianus.jpg",
-    "description": "The Chinese giant salamander is the world's largest amphibian. Conservation: Critically endangered due to overharvesting and habitat degradation; conservation involves breeding programs and habitat restoration."
+    "description": "The Chinese giant salamander is the world's largest amphibian. Conservation: Critically endangered due to overharvesting and habitat degradation; conservation involves breeding programs and habitat restoration.",
+    "imagePath": "./assets/images/cardImages/andrias-davidianus.jpg"
   },
   {
     "id": 7,
@@ -80,8 +80,8 @@
     "countries": ["Global (Tropical Waters)"],
     "redListCategory": "EN",
     "redlist_url": "https://www.iucnredlist.org/species/4615/11037468",
-    "imagePath": "/cardImages/chelonia-mydas.jpg",
-    "description": "Green sea turtles are marine turtles found in tropical and subtropical waters. Conservation: Threatened by fishing, habitat loss, and pollution; conservation includes nesting site protection and fisheries regulation."
+    "description": "Green sea turtles are marine turtles found in tropical and subtropical waters. Conservation: Threatened by fishing, habitat loss, and pollution; conservation includes nesting site protection and fisheries regulation.",
+    "imagePath": "./assets/images/cardImages/chelonia-mydas.jpg"
   },
   {
     "id": 8,
@@ -92,8 +92,8 @@
     "countries": ["Indonesia"],
     "redListCategory": "EN",
     "redlist_url": "https://www.iucnredlist.org/species/22884/123633058",
-    "imagePath": "/cardImages/varanus-komodoensis.jpg",
-    "description": "Komodo dragons are the largest living lizards, native to Indonesian islands. Conservation: Threatened by habitat loss and tourism; conservation includes protected parks and breeding programs."
+    "description": "Komodo dragons are the largest living lizards, native to Indonesian islands. Conservation: Threatened by habitat loss and tourism; conservation includes protected parks and breeding programs.",
+    "imagePath": "./assets/images/cardImages/varanus-komodoensis.jpg"
   },
   {
     "id": 9,
@@ -104,8 +104,8 @@
     "countries": ["Venezuela", "Colombia"],
     "redListCategory": "CR",
     "redlist_url": "https://www.iucnredlist.org/species/5661/181089024",
-    "imagePath": "/cardImages/crocodylus-intermedius.jpg",
-    "description": "Orinoco crocodiles are critically endangered and native to South America. Conservation: Threatened by hunting and habitat loss; conservation includes captive breeding and habitat protection."
+    "description": "Orinoco crocodiles are critically endangered and native to South America. Conservation: Threatened by hunting and habitat loss; conservation includes captive breeding and habitat protection.",
+    "imagePath": "./assets/images/cardImages/crocodylus-intermedius.jpg"
   },
   {
     "id": 10,
@@ -116,8 +116,8 @@
     "countries": ["Global"],
     "redListCategory": "VU",
     "redlist_url": "https://www.iucnredlist.org/species/3855/212629880",
-    "imagePath": "/cardImages/carcharodon-carcharias.jpg",
-    "description": "Great white sharks are large predatory fish found worldwide. Conservation: Vulnerable due to overfishing and finning; conservation involves fishing regulations and marine protected areas."
+    "description": "Great white sharks are large predatory fish found worldwide. Conservation: Vulnerable due to overfishing and finning; conservation involves fishing regulations and marine protected areas.",
+    "imagePath": "./assets/images/cardImages/carcharodon-carcharias.jpg"
   },
   {
     "id": 11,
@@ -128,8 +128,8 @@
     "countries": ["Atlantic Ocean"],
     "redListCategory": "LC",
     "redlist_url": "https://www.iucnredlist.org/species/21860/46913402",
-    "imagePath": "/cardImages/thunnus-thynnus.jpg",
-    "description": "Atlantic Bluefin tuna are large, fast-swimming fish. Conservation: Currently least concern but historically overfished; conservation involves catch quotas and sustainable fisheries."
+    "description": "Atlantic Bluefin tuna are large, fast-swimming fish. Conservation: Currently least concern but historically overfished; conservation involves catch quotas and sustainable fisheries.",
+    "imagePath": "./assets/images/cardImages/thunnus-thynnus.jpg"
   },
   {
     "id": 12,
@@ -140,8 +140,8 @@
     "countries": ["Canada", "United States"],
     "redListCategory": "EN",
     "redlist_url": "https://www.iucnredlist.org/species/103290570/103290575",
-    "imagePath": "/cardImages/acipenser-transmontanus.jpg",
-    "description": "White sturgeons are long-lived freshwater fish. Conservation: Endangered due to habitat modification and overfishing; conservation involves habitat protection and restocking programs."
+    "description": "White sturgeons are long-lived freshwater fish. Conservation: Endangered due to habitat modification and overfishing; conservation involves habitat protection and restocking programs.",
+    "imagePath": "./assets/images/cardImages/acipenser-transmontanus.jpeg"
   },
   {
     "id": 13,
@@ -152,8 +152,8 @@
     "countries": ["North America"],
     "redListCategory": "LC",
     "redlist_url": "https://www.iucnredlist.org/species/159971/219149911",
-    "imagePath": "/cardImages/danaus-plexippus.jpg",
-    "description": "Monarch butterflies are migratory insects known for their long-distance travel. Conservation: Habitat loss and pesticide use threaten populations; conservation includes habitat restoration and milkweed planting."
+    "description": "Monarch butterflies are migratory insects known for their long-distance travel. Conservation: Habitat loss and pesticide use threaten populations; conservation includes habitat restoration and milkweed planting.",
+    "imagePath": "./assets/images/cardImages/danaus-plexippus.jpg"
   },
   {
     "id": 14,
@@ -164,8 +164,8 @@
     "countries": ["Portugal"],
     "redListCategory": "EN",
     "redlist_url": "https://www.iucnredlist.org/species/97239466/135855640",
-    "imagePath": "/cardImages/neomariania-scriptella.jpg",
-    "description": "Neomariania scriptella is a rare moth species. Conservation: Endangered due to habitat destruction; conservation includes habitat monitoring and protection programs."
+    "description": "Neomariania scriptella is a rare moth species. Conservation: Endangered due to habitat destruction; conservation includes habitat monitoring and protection programs.",
+    "imagePath": "./assets/images/cardImages/neomariania-scriptella.jpg"
   },
   {
     "id": 15,
@@ -176,8 +176,8 @@
     "countries": ["North America"],
     "redListCategory": "CR",
     "redlist_url": "https://www.iucnredlist.org/species/14760/4460296",
-    "imagePath": "/cardImages/nicrophorus-americanus.jpg",
-    "description": "The American burying beetle is critically endangered and helps recycle nutrients. Conservation: Threatened by habitat loss and fragmentation; conservation includes captive breeding and reintroduction programs."
+    "description": "The American burying beetle is critically endangered and helps recycle nutrients. Conservation: Threatened by habitat loss and fragmentation; conservation includes captive breeding and reintroduction programs.",
+    "imagePath": "./assets/images/cardImages/nicrophorus-americanus.jpg"
   },
   {
     "id": 16,
@@ -188,8 +188,8 @@
     "countries": ["North America"],
     "redListCategory": "LC",
     "redlist_url": "https://www.iucnredlist.org/species/22695144/264598530",
-    "imagePath": "/cardImages/haliaeetus-leucocephalus.jpg",
-    "description": "The bald eagle is a large bird of prey native to North America. Conservation: Populations have recovered due to habitat protection and pesticide bans."
+    "description": "The bald eagle is a large bird of prey native to North America. Conservation: Populations have recovered due to habitat protection and pesticide bans.",
+    "imagePath": "./assets/images/cardImages/haliaeetus-leucocephalus.jpg"
   },
   {
     "id": 17,
@@ -200,8 +200,8 @@
     "countries": ["New Zealand"],
     "redListCategory": "CR",
     "redlist_url": "https://www.iucnredlist.org/species/22685245/129751169",
-    "imagePath": "/cardImages/strigops-habroptilus.jpg",
-    "description": "Kakapos are nocturnal, flightless parrots critically endangered in New Zealand. Conservation: Conservation efforts include intensive monitoring, predator-free islands, and captive breeding."
+    "description": "Kakapos are nocturnal, flightless parrots critically endangered in New Zealand. Conservation: Conservation efforts include intensive monitoring, predator-free islands, and captive breeding.",
+    "imagePath": "./assets/images/cardImages/strigopsi-habroptilus.jpg"
   },
   {
     "id": 18,
@@ -212,7 +212,7 @@
     "countries": ["Philippines"],
     "redListCategory": "CR",
     "redlist_url": "https://www.iucnredlist.org/species/22696012/273773083",
-    "imagePath": "/cardImages/pithecophaga-jefferyi.jpg",
-    "description": "The Philippine eagle is a critically endangered bird of prey. Conservation: Main threats include deforestation and hunting; conservation includes habitat protection and captive breeding programs."
+    "description": "The Philippine eagle is a critically endangered bird of prey. Conservation: Main threats include deforestation and hunting; conservation includes habitat protection and captive breeding programs.",
+    "imagePath": "./assets/images/cardImages/pithecophaga-jefferyi.jpg"
   }
 ]
