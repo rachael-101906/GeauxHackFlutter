@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import '/pages/intro.dart';
-<<<<<<< Updated upstream
 import 'package:flutter_application_1/components/quiz_widget2.dart';
-=======
->>>>>>> Stashed changes
 import '/pages/map_markers.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,14 +17,9 @@ class _HomePageState extends State<HomePage> {
       appBar: const NavBar(),
       body: SingleChildScrollView(
         child: Column(
-<<<<<<< Updated upstream
           children: const [
             IntroCard(),
             AnimatedQuizSection(),
-=======
-          children: [
-            const IntroCard(),
->>>>>>> Stashed changes
             SizedBox(
               height: 500, 
               child: MapMarkersPage(),
@@ -62,11 +54,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                 height: 80,
                 width: 120,
                 child: Image.asset(
-<<<<<<< Updated upstream
                   'assets/images/ecoeden.jpeg',
-=======
-                  'assets/images/ecoeden.png',
->>>>>>> Stashed changes
                   fit: BoxFit.contain, 
                 ),
               ),
