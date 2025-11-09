@@ -3,6 +3,8 @@ import 'package:animated_quiz_widget/models/quiz_models.dart';
 import 'package:animated_quiz_widget/widgets/quiz_widget.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'user.dart';
 
 class AnimatedQuizSection extends StatefulWidget {
   const AnimatedQuizSection({super.key});
@@ -26,8 +28,23 @@ class _AnimatedQuizSectionState extends State<AnimatedQuizSection> {
       _questions = questions;
     });
   }
-
+ 
   void _showQuizResults(BuildContext context, List<QuizQuestion> questions) {
+
+   final int correctCount = questions.where((q) => q.isCorrect).length;
+       if (correctCount >= 2) {
+    // Assuming you have a UserProfile instance somewhere
+    // Example:
+    // currentUserProfile is a global or state variable
+    setState(() {
+      if (FirebaseAuth.instance.currentUser != null) {
+      currentUserProfile.status = correctCount;
+      debugPrint("Current user profile status set to $correctCount");
+}
+    });
+    
+  }
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -36,6 +53,13 @@ class _AnimatedQuizSectionState extends State<AnimatedQuizSection> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+             Text(
+                'You got $correctCount out of ${questions.length} correct!',
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.green,
+                ),
+              ),
             const Text('Here are your answers:', style: TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 16),
             ...questions.map((q) => Padding(

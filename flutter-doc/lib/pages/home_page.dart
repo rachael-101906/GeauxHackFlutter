@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/signup_page.dart';
 import '/pages/intro.dart';
-import '/pages/quiz_widget.dart';
-import 'package:matching_game/matching_game.dart';
 import 'package:flutter_application_1/components/quiz_widget2.dart';
+import 'login_page.dart';
+import 'user_profile.dart';
+//import 'signup_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -67,10 +69,11 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                 const SizedBox(width: 4),
                 _buildNavItem(context, 'Quiz', '/quiz'),
                 const SizedBox(width: 4),
-                _buildContactButton(context, 'Contact Us', '/contact'),
+                _buildSignuplogininButton(context, 'Sign Up/Log In', '/contact'),
                 const SizedBox(width: 8),
-                _buildAdoptButton(context, 'Adopt an Animal', '/adopt'),
+                _buildUserprofileButton(context, 'User Profile', '/adopt'),
                 const SizedBox(width: 8),
+
               ],
             ),
           ),
@@ -98,10 +101,12 @@ Widget _buildNavItem(BuildContext context, String title, String route) {
   );
 }
 
-Widget _buildContactButton(BuildContext context, String title, String route) {
+Widget _buildSignuplogininButton(BuildContext context, String title, String route) {
   return OutlinedButton(
     onPressed: () {
-      Navigator.pushNamed(context, route);
+      Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const SignupScreen()));
     },
     style: OutlinedButton.styleFrom(
       side: const BorderSide(
@@ -127,10 +132,12 @@ Widget _buildContactButton(BuildContext context, String title, String route) {
   );
 }
 
-Widget _buildAdoptButton(BuildContext context, String title, String route) {
+Widget _buildUserprofileButton(BuildContext context, String title, String route) {
   return ElevatedButton(
     onPressed: () {
-      Navigator.pushNamed(context, route);
+           Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const UserProfileScreen()));
     },
     style: ElevatedButton.styleFrom(
       backgroundColor: const Color.fromARGB(255, 48, 67, 48),
@@ -151,4 +158,5 @@ Widget _buildAdoptButton(BuildContext context, String title, String route) {
       style: const TextStyle(color: Colors.white, fontSize: 10),
     ),
   );
+
 }
