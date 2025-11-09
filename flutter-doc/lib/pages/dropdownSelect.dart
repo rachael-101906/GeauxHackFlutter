@@ -26,7 +26,6 @@ class _DropdownSelectState extends State<DropdownSelect> {
     'Insect',
   ];
 
-  // Map dropdown values to JSON class names
   final Map<String, String> typeToClass = {
     'Mammal': 'Mammalia',
     'Bird': 'Aves',
@@ -136,42 +135,38 @@ class _DropdownSelectState extends State<DropdownSelect> {
     });
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Row(
-          children: [
-            SizedBox(width: 250, child: _buildTypeDropdown()),
-          ],
-        ),
-        const SizedBox(height: 20),
-        Center(
-          child: ElevatedButton(
-            key: _buttonKey,
-            onPressed: _isToolTipVisible ? null : _generateRandomAnimal,
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFFD9EFDE),
-              foregroundColor: const Color(0xFF232E26),
-              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
-              minimumSize: const Size(30, 40),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
+@override
+Widget build(BuildContext context) {
+  return Row(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      SizedBox(width: 250, child: _buildTypeDropdown()),
+      const SizedBox(width: 20),
+      SizedBox(
+        height: 60,
+        child: ElevatedButton(
+          key: _buttonKey,
+          onPressed: _isToolTipVisible ? null : _generateRandomAnimal,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFFD9EFDE),
+            foregroundColor: const Color(0xFF232E26),
+            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
             ),
-            child: const Text(
-              'Generate!',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
+          ),
+          child: const Text(
+            'Generate!',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),
-      ],
-    );
-  }
+      ),
+    ],
+  );
+}
 
   Widget _buildTypeDropdown() {
     return DropdownContainer(
