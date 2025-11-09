@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import '/pages/intro.dart';
-import '/pages/quiz_widget.dart';
-import 'package:matching_game/matching_game.dart';
 import 'package:flutter_application_1/components/quiz_widget2.dart';
+import '/pages/map_markers.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,6 +20,10 @@ class _HomePageState extends State<HomePage> {
           children: const [
             IntroCard(),
             AnimatedQuizSection(),
+            SizedBox(
+              height: 500, 
+              child: MapMarkersPage(),
+            ),
           ],
         ),
       ),
@@ -44,12 +47,15 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
           // Left: logo
           Row(
             children: [
-              Image.asset(
-                'assets/images/ecoeden.jpeg',
-                fit: BoxFit.contain,
-                height: 32,
+              SizedBox(
+                height: 80,
+                width: 120,
+                child: Image.asset(
+                  'assets/images/ecoeden.png',
+                  fit: BoxFit.contain, 
+                ),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: 10),
             ],
           ),
 
@@ -93,7 +99,7 @@ Widget _buildNavItem(BuildContext context, String title, String route) {
     ),
     child: Text(
       title,
-      style: const TextStyle(color: Colors.black, fontSize: 10),
+      style: const TextStyle(color: Colors.black, fontSize: 12),
     ),
   );
 }
@@ -122,7 +128,7 @@ Widget _buildContactButton(BuildContext context, String title, String route) {
     ),
     child: Text(
       title,
-      style: const TextStyle(color: Colors.black, fontSize: 10),
+      style: const TextStyle(color: Colors.black, fontSize: 13),
     ),
   );
 }
@@ -148,7 +154,7 @@ Widget _buildAdoptButton(BuildContext context, String title, String route) {
     ),
     child: Text(
       title,
-      style: const TextStyle(color: Colors.white, fontSize: 10),
+      style: const TextStyle(color: Colors.white, fontSize: 13),
     ),
   );
 }

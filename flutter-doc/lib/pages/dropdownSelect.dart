@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:math';
 
+
 class DropdownSelect extends StatefulWidget {
   const DropdownSelect({super.key});
 
@@ -26,14 +27,6 @@ class _DropdownSelectState extends State<DropdownSelect> {
     'Insect',
   ];
 
-  final Map<String, String> typeToClass = {
-    'Mammal': 'Mammalia',
-    'Bird': 'Aves',
-    'Reptile': 'Reptilia',
-    'Amphibian': 'Amphibia',
-    'Fish': 'Pisces',
-    'Insect': 'Insecta',
-  };
 
   @override
   void initState() {
@@ -207,7 +200,7 @@ class DropdownContainer extends StatelessWidget {
         boxShadow: value != null
             ? [
                 BoxShadow(
-                  color: const Color(0xFF68B684).withOpacity(0.3),
+                  color: const Color(0xFF68B684),
                   blurRadius: 12,
                   offset: const Offset(0, 4),
                 ),
@@ -316,7 +309,7 @@ class _AnimalToolTipState extends State<AnimalToolTip>
                         topLeft: Radius.circular(20),
                         topRight: Radius.circular(20),
                       ),
-                      child: Image.network(
+                      child: Image.asset(
                         widget.imagePath,
                         width: double.infinity,
                         height: 200,
@@ -330,19 +323,6 @@ class _AnimalToolTipState extends State<AnimalToolTip>
                               Icons.image_not_supported,
                               size: 50,
                               color: Colors.white,
-                            ),
-                          );
-                        },
-                        loadingBuilder: (context, child, loadingProgress) {
-                          if (loadingProgress == null) return child;
-                          return Container(
-                            width: double.infinity,
-                            height: 200,
-                            color: const Color(0xFF68B684),
-                            child: const Center(
-                              child: CircularProgressIndicator(
-                                color: Colors.white,
-                              ),
                             ),
                           );
                         },
