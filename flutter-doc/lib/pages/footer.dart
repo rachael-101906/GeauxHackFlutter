@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/textfield.dart';
 
 class AppFooter extends StatelessWidget {
   const AppFooter({super.key});
@@ -58,13 +59,19 @@ class AppFooter extends StatelessWidget {
                   fontSize: 14,
                 ),
               ),
-              TextButton(
-                onPressed: () {},
+               TextButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => DonationPopUp(),
+                  );
+                },
                 child: const Text(
-                  'Contact Us',
+                  'Donate Now',
                   style: TextStyle(color: Colors.black),
                 ),
               ),
+
             ],
           ),
         ],
@@ -72,3 +79,71 @@ class AppFooter extends StatelessWidget {
     );
   }
 }
+
+class DonationPopUp extends StatelessWidget {
+  DonationPopUp({super.key});
+
+  final _amount = TextEditingController();
+  final _card = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('Support Our Cause'),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Text(
+              'Your donation helps us protect endangered species and their habitats.'),
+          const SizedBox(height: 16),
+          CustomTextField(
+            hint: "Enter Donation Amount",
+            label: "Amount",
+            controller: _amount,
+          ),
+          const SizedBox(height: 8),
+          CustomTextField(
+            hint: "Enter Credit Card Number",
+            label: "Credit Card",
+            controller: _card,
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: const Text('Close'),
+        ),
+        TextButton(
+          onPressed: () {
+            // Close the donation dialog
+            if (_amount.text.isNotEmpty && _card.text.isNotEmpty) {
+              Navigator.of(context).pop();
+            }
+
+            // Only show thank-you message if both fields are filled
+           
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: const Text('Thank You!'),
+                  content: const Text(
+                    'Thank you for your support! Your donation will help protect endangered species.',
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.of(context).pop(),
+                      child: const Text('Close'),
+                    ),
+                  ],
+                ),
+              );
+            
+          },
+          child: const Text('Donate'),
+        ),
+      ],
+    );
+  }
+}
+
