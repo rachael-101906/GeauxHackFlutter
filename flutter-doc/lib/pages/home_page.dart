@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import '/pages/intro.dart';
+import '/pages/quiz_widget.dart';
+import 'package:matching_game/matching_game.dart';
+import 'package:flutter_application_1/components/quiz_widget2.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,6 +20,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: const [
             IntroCard(),
+            AnimatedQuizSection(),
           ],
         ),
       ),
