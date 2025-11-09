@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '/pages/dropdownSelect.dart';
+import 'package:flutter_application_1/components/image_carousel.dart';
 
 class IntroCard extends StatefulWidget {
   const IntroCard({super.key});
@@ -43,41 +44,48 @@ class IntroView extends StatelessWidget {
   // Layout for wide screens (desktop/tablet landscape)
   Widget _buildWideLayout() {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         // Left side: Text content
         Expanded(
           flex: 1,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                'Your Ultimate Endangered Species Guide',
-                style: TextStyle(
-                  color: Color(0xFFD9EFDE),
-                  fontSize: 50,
-                  fontWeight: FontWeight.w700,
-                  height: 1.2,
+              Center(
+                child: const Text(
+                  'Your Ultimate Endangered Species Guide',
+                  textAlign: TextAlign.center, 
+                  style: TextStyle(
+                    color: Color(0xFFD9EFDE),
+                    fontSize: 60,
+                    fontWeight: FontWeight.w700,
+                    height: 1.2,
+                  ),
                 ),
               ),
               const SizedBox(height: 24),
               const Text(
                 'Did you know that there are more than 47,000 species that are threatened by extinction?',
+                textAlign: TextAlign.center, 
                 style: TextStyle(
                   color: Color(0xFFD9EFDE),
-                  fontSize: 18,
+                  fontSize: 25,
                   height: 1.6,
                 ),
               ),
               const SizedBox(height: 40),
-              const Text(
-                'Generate a random endangered animal to learn more about!',
-                style: TextStyle(
-                  color: Color.fromARGB(153, 154, 167, 155),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                  height: 1.25,
+              Center(
+                child: const Text(
+                  'Generate a random endangered animal to learn more about!',
+                  textAlign: TextAlign.center, // 💡 Also centering this text
+                  style: TextStyle(
+                    color: Color(0xFFD9EFDE),
+                    fontSize: 22,
+                    fontWeight: FontWeight.w400,
+                    height: 1.25,
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
@@ -89,19 +97,8 @@ class IntroView extends StatelessWidget {
         // Right side: Image
         Expanded(
           flex: 1,
-          child: Container(
-            height: 440,
-            decoration: ShapeDecoration(
-              image: const DecorationImage(
-                image: AssetImage('assets/images/intro_picture.jpg'),
-                fit: BoxFit.cover,
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-            ),
-          ),
-        ),
+          child:  ImageCarousel(),
+         ),
       ],
     );
   }
@@ -109,10 +106,11 @@ class IntroView extends StatelessWidget {
   // Layout for narrow screens (mobile/tablet portrait)
   Widget _buildNarrowLayout() {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const Text(
           'Your Ultimate Endangered Species Guide',
+          textAlign: TextAlign.center, // 💡 Ensures text is centered
           style: TextStyle(
             color: Color(0xFFD9EFDE),
             fontSize: 36,
@@ -123,6 +121,7 @@ class IntroView extends StatelessWidget {
         const SizedBox(height: 24),
         const Text(
           'Did you know that there are more than 47,000 species that are threatened by extinction?',
+          textAlign: TextAlign.center, // 💡 Also centering this text
           style: TextStyle(
             color: Color(0xFFD9EFDE),
             fontSize: 16,
@@ -131,30 +130,26 @@ class IntroView extends StatelessWidget {
         ),
         const SizedBox(height: 30),
         Container(
-          height: 300,
-          width: double.infinity,
-          decoration: ShapeDecoration(
-            image: const DecorationImage(
-              image: AssetImage('assets/images/intro_picture.jpg'),
-              fit: BoxFit.cover,
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-          ),
+         child: ImageCarousel(),
         ),
         const SizedBox(height: 30),
-        const Text(
-          'Generate a random endangered animal to learn more about!',
-          style: TextStyle(
-            color: Color(0xFFD9EFDE),
-            fontSize: 16,
-            fontWeight: FontWeight.w400,
-            height: 1.25,
-          ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Generate a random endangered animal to learn more about!',
+              textAlign: TextAlign.center, // 💡 Also centering this text
+              style: TextStyle(
+                color: Color(0xFFD9EFDE),
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+                height: 1.25,
+              ),
+            ),
+            const SizedBox(height: 20),
+            const DropdownSelect(),
+          ],
         ),
-        const SizedBox(height: 20),
-        const DropdownSelect(),
       ],
     );
   }

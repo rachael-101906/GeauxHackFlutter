@@ -7,9 +7,16 @@ class ImageCarousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<String> imgList = [
-      'images/pangolin.jpg',
-      'images/leopard.jpg',
-      'images/tiger.jpg',
+      'images/pangolin.jpeg',
+      'images/panda.jpeg',
+       'images/birds.jpeg',
+       'images/intro_picture.jpeg',
+      'images/fish.jpeg',
+       'images/frog.jpeg',
+      'images/leopard.jpeg',
+       'images/insect.jpeg',
+      'images/tiger.jpeg',
+      'images/whale.jpeg',
     ];
 
     return Center(
@@ -31,12 +38,12 @@ class ImageCarousel extends StatelessWidget {
         },
         options: CarouselOptions(
           height: 400.0,
-          //autoPlay: true,
+          autoPlay: true,
           enlargeCenterPage: true,
           aspectRatio: 16 / 9,
-          //autoPlayCurve: Curves.fastOutSlowIn,
+          autoPlayCurve: Curves.fastOutSlowIn,
           enableInfiniteScroll: true,
-         // autoPlayAnimationDuration: const Duration(milliseconds: 800),
+         autoPlayAnimationDuration: const Duration(milliseconds: 800),
           viewportFraction: 0.8,
         ),
       ),

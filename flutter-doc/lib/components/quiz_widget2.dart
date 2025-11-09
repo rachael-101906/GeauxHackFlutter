@@ -3,6 +3,8 @@ import 'package:animated_quiz_widget/models/quiz_models.dart';
 import 'package:animated_quiz_widget/widgets/quiz_widget.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'user.dart';
 
 class AnimatedQuizSection extends StatefulWidget {
   const AnimatedQuizSection({super.key});
@@ -26,8 +28,23 @@ class _AnimatedQuizSectionState extends State<AnimatedQuizSection> {
       _questions = questions;
     });
   }
-
+ 
   void _showQuizResults(BuildContext context, List<QuizQuestion> questions) {
+
+   final int correctCount = questions.where((q) => q.isCorrect).length;
+       if (correctCount >= 2) {
+    // Assuming you have a UserProfile instance somewhere
+    // Example:
+    // currentUserProfile is a global or state variable
+    setState(() {
+      if (FirebaseAuth.instance.currentUser != null) {
+      currentUserProfile.status = correctCount;
+      debugPrint("Current user profile status set to $correctCount");
+}
+    });
+    
+  }
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -36,6 +53,13 @@ class _AnimatedQuizSectionState extends State<AnimatedQuizSection> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+             Text(
+                'You got $correctCount out of ${questions.length} correct!',
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.green,
+                ),
+              ),
             const Text('Here are your answers:', style: TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 16),
             ...questions.map((q) => Padding(
@@ -77,21 +101,14 @@ class _AnimatedQuizSectionState extends State<AnimatedQuizSection> {
       child: QuizWidget(
         questions: _questions,
         config: const QuizConfig(
-          backgroundColor: Color.fromARGB(255, 81, 118, 89),
-          cornerRadius: 16,
-          padding: EdgeInsets.all(24),
-          showProgressIndicator: true,
-          requireAnswerToProgress: true,
-          allowBackwardNavigation: true,
-          enableAutoNavigation: true,
-          autoNavigationDelay: Duration(milliseconds: 1000),
-          useGradientBackground: true,
-          gradientColors: [
-            Color(0xFFD9EFDE),
-            Color(0xFF232E26),
-            Colors.white,
-          ],
-        ),
+        useGradientBackground: true,
+        gradientColors: [
+          Color.fromARGB(255, 54, 62, 56),
+          Color.fromARGB(255, 76, 96, 81),
+          Color.fromARGB(255, 141, 152, 144),
+        ],
+      ),
+      
         onAnswerChanged: (question, answer) {
           debugPrint('Question ${question.id}: $answer');
         },

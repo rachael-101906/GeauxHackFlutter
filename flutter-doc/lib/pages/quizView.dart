@@ -91,42 +91,47 @@ class QuizUI extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 300,
+      height: 700,
       color: const Color(0xFFB3CBB2),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 50),
             child: Text(
               'Want to see how much you know about endangered species and their scientific names?',
               textAlign: TextAlign.center,
               style: TextStyle(
-               fontSize: 36,
+               fontSize: 50,
                fontWeight: FontWeight.w700,
                height: 1.2,
               ),
             ),
           ),
           const SizedBox(height: 30),
-          ElevatedButton(
-            onPressed: onQuizButtonPressed,
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFFD9EFDE),
-              foregroundColor: const Color(0xFF232E26),
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
-                side: const BorderSide(
-                  width: 3,
-                  color: Color(0xFF232D25),
+
+          Container(
+            width: 400,
+            height: 100, 
+            child: ElevatedButton(
+              onPressed: onQuizButtonPressed,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFFD9EFDE),
+                foregroundColor: const Color(0xFF232E26),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  side: const BorderSide(
+                    width: 3,
+                    color: Color(0xFF232D25),
+                  ),
                 ),
               ),
-            ),
-            child: const Text(
-              'Start Quiz',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              child: const Text(
+                'Start Quiz',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
+              ),
             ),
           ),
         ],
