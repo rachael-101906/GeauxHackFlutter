@@ -31,7 +31,7 @@ class AppFooter extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(
-            'Creating a better world for all Earth''s inhabitants.',
+            'Creating a better world for all its inhabitants.',
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: Colors.black87,

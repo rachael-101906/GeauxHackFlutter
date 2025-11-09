@@ -4,7 +4,6 @@ import 'package:latlong2/latlong.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 
-
 class MapAnimalDialog extends StatelessWidget {
   final String animalName;
   final String description;

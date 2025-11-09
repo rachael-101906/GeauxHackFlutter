@@ -111,9 +111,10 @@ class _AnimatedQuizSectionState extends State<AnimatedQuizSection> {
           autoNavigationDelay: Duration(milliseconds: 1000),
           useGradientBackground: true,
           gradientColors: [
-            Color(0xFFD9EFDE),
-            Color(0xFF232E26),
-            Colors.white,
+            Color.fromARGB(255, 54, 62, 56),
+            Color.fromARGB(255, 76, 96, 81),
+            Color.fromARGB(255, 141, 152, 144),
+            
           ],
         ),
         onAnswerChanged: (question, answer) {

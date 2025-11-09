@@ -32,6 +32,51 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  void _showProfileModal() {
+    showGeneralDialog(
+      context: context,
+      barrierDismissible: true,
+      barrierLabel: 'User Profile',
+      barrierColor: Colors.black.withValues(alpha: 0.5),
+      transitionDuration: const Duration(milliseconds: 300),
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return Align(
+          alignment: Alignment.centerRight,
+          backgroundColor: 
+          child: Material(
+            child: Container(
+              width: 350,
+              height: MediaQuery.of(context).size.height,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 218, 236, 198),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.3),
+                    blurRadius: 10,
+                    offset: const Offset(-5, 0),
+                  ),
+                ],
+              ),
+              child: const UserProfileScreen(),
+            ),
+          ),
+        );
+      },
+      transitionBuilder: (context, animation, secondaryAnimation, child) {
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(1, 0),
+            end: Offset.zero,
+          ).animate(CurvedAnimation(
+            parent: animation,
+            curve: Curves.easeInOut,
+          )),
+          child: child,
+        );
+      },
+    );
+  }
+
   void _showQuizModal() {
     showDialog(
       context: context,
@@ -48,9 +93,8 @@ class _HomePageState extends State<HomePage> {
             ),
             child: Column(
               children: [
-                // Header with close button
                 Container(
-                  padding: const EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
                     color: const Color(0xFFB3CBB2),
                     borderRadius: const BorderRadius.only(
@@ -77,7 +121,6 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-                // Quiz content
                 const Expanded(
                   child: SingleChildScrollView(
                     child: Padding(
@@ -101,15 +144,15 @@ class _HomePageState extends State<HomePage> {
         onHomeTap: () => _scrollToSection(_introKey),
         onMapTap: () => _scrollToSection(_mapKey),
         onQuizTap: () => _scrollToSection(_quizKey),
+        onProfileTap: _showProfileModal, 
       ),
       body: SingleChildScrollView(
         controller: _scrollController,
         child: Column(
           children: [
             IntroCard(key: _introKey),
-            // Quiz card section with key attached
             Container(
-              key: _quizKey, // Key attached here!
+              key: _quizKey,
               child: QuizUI(
                 onQuizButtonPressed: _showQuizModal,
               ),
@@ -130,14 +173,14 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback onHomeTap;
   final VoidCallback onMapTap;
   final VoidCallback onQuizTap;
-
+  final VoidCallback onProfileTap; 
 
   const NavBar({
     super.key,
     required this.onHomeTap,
     required this.onMapTap,
     required this.onQuizTap,
-
+    required this.onProfileTap, 
   });
 
   @override
@@ -152,7 +195,6 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // Left: logo
           Row(
             children: [
               SizedBox(
@@ -166,8 +208,6 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
               const SizedBox(width: 10),
             ],
           ),
-
-          // Right: nav items
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -179,11 +219,10 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                 const SizedBox(width: 4),
                 _buildNavItem('Map', onMapTap),
                 const SizedBox(width: 4),
-                _buildSignUpLoginButton(context, 'Sign Up/Log In', '/contact'),
+                _buildSignUpLoginButton(context, 'Sign Up/Log In'),
                 const SizedBox(width: 8),
-                _buildUserProfileButton(context, 'User Profile', '/adopt'),
+                _buildUserProfileButton('User Profile', onProfileTap), 
                 const SizedBox(width: 8),
-
               ],
             ),
           ),
@@ -208,56 +247,45 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-Widget _buildSignUpLoginButton(BuildContext context, String title, String route) {
-  return OutlinedButton(
-    onPressed: () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const SignupScreen()),
-      );
-    },
-    style: OutlinedButton.styleFrom(
-      side: const BorderSide(
-        width: 2,
-        color: Color.fromARGB(255, 48, 67, 48),
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-    ),
-    child: Text(
-      title,
-      style: const TextStyle(color: Colors.black, fontSize: 12),
-    ),
-  );
-}
-
-
-
-Widget _buildUserProfileButton(BuildContext context, String title, String route) {
-  return ElevatedButton(
-    onPressed: () {
-           Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const UserProfileScreen()));
-    },
-    style: ElevatedButton.styleFrom(
-      backgroundColor: const Color.fromARGB(255, 48, 67, 48),
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12.0),
-      minimumSize: Size.zero,
-      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      shape: RoundedRectangleBorder(
+  Widget _buildSignUpLoginButton(BuildContext context, String title) {
+    return OutlinedButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const SignupScreen()),
+        );
+      },
+      style: OutlinedButton.styleFrom(
         side: const BorderSide(
-          width: 1,
-          strokeAlign: BorderSide.strokeAlignOutside,
+          width: 2,
+          color: Color.fromARGB(255, 48, 67, 48),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      ),
+      child: Text(
+        title,
+        style: const TextStyle(color: Colors.black, fontSize: 12),
+      ),
+    );
+  }
+
+
+  Widget _buildUserProfileButton(String title, VoidCallback onTap) {
+    return ElevatedButton(
+      onPressed: onTap,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color.fromARGB(255, 48, 67, 48),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        side: const BorderSide(
+          width: 2,
           color: Color(0xFF232D25),
         ),
       ),
-    ),
-    child: Text(
-      title,
-      style: const TextStyle(color: Colors.white, fontSize: 10),
-    ),
-  );
-
-}
-
+      child: Text(
+        title,
+        style: const TextStyle(color: Colors.white, fontSize: 10),
+      ),
+    );
+  }
 }
