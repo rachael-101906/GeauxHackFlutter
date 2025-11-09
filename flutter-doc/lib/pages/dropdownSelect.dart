@@ -26,6 +26,16 @@ class _DropdownSelectState extends State<DropdownSelect> {
     'Insect',
   ];
 
+  // Map dropdown values to JSON class names
+  final Map<String, String> typeToClass = {
+    'Mammal': 'Mammalia',
+    'Bird': 'Aves',
+    'Reptile': 'Reptilia',
+    'Amphibian': 'Amphibia',
+    'Fish': 'Pisces',
+    'Insect': 'Insecta',
+  };
+
   @override
   void initState() {
     super.initState();
@@ -104,13 +114,22 @@ class _DropdownSelectState extends State<DropdownSelect> {
     Future.delayed(const Duration(milliseconds: 300), () {
       if (organisms == null) return;
 
-      List<dynamic> filteredList = organisms!.where((organism) => organism['type'] == selectedType).toList();
+      List<dynamic> filteredList = organisms!.where((organism) => organism['class'] == selectedType).toList();
       
-      if (filteredList.isEmpty) return;
+      if (filteredList.isEmpty) {
+        setState(() => _isToolTipVisible = false);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('No animals found for $selectedType'),
+            backgroundColor: Color(0xFF232E26),
+          ),
+        );
+        return;
+      }
 
       int randomIndex = Random().nextInt(filteredList.length);
       String animalName = filteredList[randomIndex]['common_name'];
-      String description = filteredList[randomIndex]['description'];
+      String description = filteredList[randomIndex]['description'] ?? 'No description available';
       String imagePath = filteredList[randomIndex]['imagePath'];
 
       _showToolTip(animalName, description, imagePath);
@@ -302,11 +321,36 @@ class _AnimalToolTipState extends State<AnimalToolTip>
                         topLeft: Radius.circular(20),
                         topRight: Radius.circular(20),
                       ),
-                      child: Image.asset(
+                      child: Image.network(
                         widget.imagePath,
                         width: double.infinity,
                         height: 200,
                         fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Container(
+                            width: double.infinity,
+                            height: 200,
+                            color: const Color(0xFF68B684),
+                            child: const Icon(
+                              Icons.image_not_supported,
+                              size: 50,
+                              color: Colors.white,
+                            ),
+                          );
+                        },
+                        loadingBuilder: (context, child, loadingProgress) {
+                          if (loadingProgress == null) return child;
+                          return Container(
+                            width: double.infinity,
+                            height: 200,
+                            color: const Color(0xFF68B684),
+                            child: const Center(
+                              child: CircularProgressIndicator(
+                                color: Colors.white,
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ),
                     Positioned(
