@@ -50,6 +50,7 @@ class _DropdownSelectState extends State<DropdownSelect> {
 
     final overlay = Overlay.of(context);
     if (overlay == null) return;
+    if (overlay == null) return;
 
     final RenderBox renderBox =
         _buttonKey.currentContext!.findRenderObject() as RenderBox;
@@ -130,11 +131,12 @@ class _DropdownSelectState extends State<DropdownSelect> {
 Widget build(BuildContext context) {
   return Row(
     crossAxisAlignment: CrossAxisAlignment.center,
+    mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      SizedBox(width: 250, child: _buildTypeDropdown()),
+      SizedBox(width: 300, child: _buildTypeDropdown()),
       const SizedBox(width: 20),
       SizedBox(
-        height: 60,
+        height: 90,
         child: ElevatedButton(
           key: _buttonKey,
           onPressed: _isToolTipVisible ? null : _generateRandomAnimal,
@@ -149,7 +151,7 @@ Widget build(BuildContext context) {
           child: const Text(
             'Generate!',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 20,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -188,6 +190,8 @@ class DropdownContainer extends StatelessWidget {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      width: 300,
+      height: 90,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
@@ -217,7 +221,7 @@ class DropdownContainer extends StatelessWidget {
           dropdownColor: Colors.white,
           style: const TextStyle(
             color: Color(0xFF232E26),
-            fontSize: 16,
+            fontSize: 20,
             fontWeight: FontWeight.w600,
           ),
           onChanged: onChanged,

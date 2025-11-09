@@ -281,10 +281,10 @@ Widget build(BuildContext context) {
               padding: EdgeInsets.only(top: 20, left: 30, right: 30, bottom: 10), 
               child: Center( 
                 child: Text(
-                    'Tap on the markers to explore endangered animals and their corresponding biorealms!', 
+                    'Tap on the markers to explore endangered animals and their biorealms!', 
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 40,
                       fontWeight: FontWeight.bold,
                       color:  Color(0xFFB3CBB2), 
                     ),

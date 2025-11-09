@@ -36,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/leopard.jpg'),
+                image: AssetImage('assets/images/leopard.jpeg'),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
                   Colors.black.withValues(alpha: 0.3),

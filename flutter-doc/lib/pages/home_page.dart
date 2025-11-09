@@ -44,11 +44,9 @@ class _HomePageState extends State<HomePage> {
           alignment: Alignment.centerRight,
           child: Material(
             child: Container(
-            // Removed the standalone 'color' property here
             width: 350,
             height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
-              // ✅ Corrected: Moved the color inside the BoxDecoration
               color: const Color.fromARGB(255, 218, 236, 198),
               boxShadow: [
                 BoxShadow(
@@ -199,8 +197,8 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
           Row(
             children: [
               SizedBox(
-                height: 80,
-                width: 120,
+                height: 100,
+                width: 150,
                 child: Image.asset(
                   'assets/images/ecoeden.jpeg',
                   fit: BoxFit.contain,
@@ -215,15 +213,15 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 _buildNavItem('Home', onHomeTap),
-                const SizedBox(width: 4),
+                const SizedBox(width: 15),
                 _buildNavItem('Quiz', onQuizTap),
-                const SizedBox(width: 4),
+                const SizedBox(width: 15),
                 _buildNavItem('Map', onMapTap),
-                const SizedBox(width: 4),
+                const SizedBox(width: 15),
                 _buildSignUpLoginButton(context, 'Sign Up/Log In'),
-                const SizedBox(width: 8),
+                const SizedBox(width: 15),
                 _buildUserProfileButton('User Profile', onProfileTap), 
-                const SizedBox(width: 8),
+                const SizedBox(width: 15),
               ],
             ),
           ),
@@ -243,7 +241,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       child: Text(
         title,
-        style: const TextStyle(color: Colors.black, fontSize: 12),
+        style: const TextStyle(color: Colors.black, fontSize: 18),
       ),
     );
   }
@@ -261,11 +259,11 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
           width: 2,
           color: Color.fromARGB(255, 48, 67, 48),
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
       ),
       child: Text(
         title,
-        style: const TextStyle(color: Colors.black, fontSize: 12),
+        style: const TextStyle(color: Colors.black, fontSize: 20),
       ),
     );
   }
@@ -277,7 +275,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color.fromARGB(255, 48, 67, 48),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
         side: const BorderSide(
           width: 2,
           color: Color(0xFF232D25),
@@ -285,7 +283,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       child: Text(
         title,
-        style: const TextStyle(color: Colors.white, fontSize: 10),
+        style: const TextStyle(color: Colors.white, fontSize: 20),
       ),
     );
   }

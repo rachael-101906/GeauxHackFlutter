@@ -37,7 +37,7 @@ class _SignupScreenState extends State<SignupScreen> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/intro_picture.jpg'), 
+                image: AssetImage('assets/images/intro_picture.jpeg'), 
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
                   Colors.black.withValues(alpha: 0.3),
